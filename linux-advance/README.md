@@ -99,10 +99,24 @@ sudo tcpdump -i any tcp port 8080 -w capture.pcap
 
 ii) How can one isolate and interpret different HTTP methods and status codes from a larger 
 volume of captured traffic? 
+```
+sudo tcpdump -A -s 0 'tcp port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+```
+
 iiI) What techniques allow extraction of specific HTTP header fields, such as Host, User_agent, or 
 the request URL. 
+```
+sudo tcpdump -A -s 0 'tcp port 8080'
+```
 iv) How can the captured network traffic be summarized to highlight patterns in HTTP requestresponse interactions, especially under heavy load? 
+```
+tshark -r capture.pcap -q -z http,stat
+```
+
 v) List the TCP handshake and session initiation for the HTTP traffic on port 8080? 
+```
+sudo tcpdump -i any tcp port 8080 and '(tcp[tcpflags] & (tcp-syn|tcp-ack) != 0)'
+```
  
 3. Simulate two isolated network namespaces be created on a single host, such that each 
 environment runs a separate process and both are connected via a common virtual bridge, 
