@@ -132,19 +132,92 @@ Explain:
 6. delete all network and bridge
 ```
 ![alt text](image-6.png)
- 
+
 4. Spin up two Ubuntu VMs in Vmware – VM1 and VM2.
+
+
 4.1 Configure a custom route in VM1 to forward traffic to 9.9.9.9 to be forwarded to 
 VM2 and verify using tcpdump. Make sure that ping to 9.9.9.9 receives reply by 
 configuring VM2 to forward the packets.
+
+```
+vm2
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+vm1
+
+sudo ip route add 9.9.9.9/32 via 192.168.252.129
+
+vm2
+
+sudo ip addr add 9.9.9.9/32 dev ens33
+
+vm2
+
+sudo tcpdump -i ens33 host 9.9.9.9
+
+vm1
+
+ping 9.9.9.9
+
+```
+
+![alt text](image-15.png)
+
+
+![alt text](image-14.png)
+
+
 4.2 Get the ARP cache of both the VMs. Delete the current IP address. Pick a /24 network 
 from the private IP range 172.16.0.0/16 and assign a static IP address manually to both 
 the VMs. Ensure that the VMs can ping each other. Now delete the IP addresses and use 
 DHCP to automatically assign IP addresses to the interfaces.
+
+```
+1. Get the ARP Cache
+arp -n
+
+2. delete ip of both vm
+sudo ip addr flush dev ens33
+
+3. assign static ip
+
+vm1
+sudo ip addr add 172.16.1.10/24 dev ens33
+sudo ip link set ens33 up
+
+vm2
+sudo ip addr add 172.16.1.20/24 dev ens33
+sudo ip link set ens33 up
+
+4. check
+vm1
+ping 172.16.1.20
+
+vm2
+ping 172.16.1.10
+
+5. delete the static ip
+sudo ip addr flush dev ens33
+
+6. assign new ip dynamically
+sudo dhclient ens33
+
+7. check
+ip a
+
+```
+![alt text](image-17.png)
+
 Configure a custom route in VM1 to forward traffic to 9.9.9.9 to be forwarded to VM2 and verify 
 using tcpdump. Make sure that ping to 9.9.9.9 receives reply by configuring VM2 to forward the 
 packets.
- 
+
+
+
+
+
 5. Build and validate a PKI setup using your Own CA. The PKI should be used to secure an NGINX 
 server and perform certification verification.
 
