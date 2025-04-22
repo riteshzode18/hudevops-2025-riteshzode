@@ -1,6 +1,8 @@
 HashedIn University Linux Advance Assignment 
 
 1. DNS
+
+
 A. When you perform an nslookup for a domain name, the DNS resolution process involves 
 multiple stages, starting from the root DNS servers down to the authoritative name servers. 
 Using appropriate tools or commands, how can you trace the full DNS resolution path and 
@@ -8,24 +10,78 @@ identify all the intermediate DNS servers (like root, TLD, and authoritative ser
 resolving a domain name (Hashedin.com, Deloitte.com, dna.hashedin.com)? Please explain the 
 steps and provide the command(s) used along with the output interpretation.
 
+answer:
 
+```
+dig +trace hashedin.com
+```
+Explain:
+
+use dig +trace domain.com to trace DNS resolution step by step to root, TLD and authoritative servers
+
+![alt text](image.png)
 
 
  
-B. On a Linux system perform the below tasks: 
+B. On a Linux system perform the below tasks:
+
+
 i) Add a custom entry in a file in linux file system where it should point to loopback address when 
 you enter “mypc.test”. 
-ii) Verify that the domain “mypc.test” resolves to your loopback address using necessary linux 
-commands.
-iii) Temporarily comment out the entry in the file and the test the resolution again. What do you 
-observe? 
 
+
+commands:
+```
+sudo nano /etc/hosts
+sudo cat /etc/hosts
+```
+![alt text](image-1.png)
+
+explain:
+point mypc.tst to localhost (127.0.0.1)
+127.0.0.1   mypc.test
+
+
+ii) Verify that the domain “mypc.test” resolves to your loopback address using necessary linux
+
+commands:
+
+```
+ping mypc.test
+```
+
+![alt text](image-2.png)
+
+
+iii) Temporarily comment out the entry in the file and the test the resolution again. What do you 
+observe?
+
+commands:
+
+```
+nano /etc/hosts -- comments the entry
+ping mypc.test
+
+```
+
+![alt text](image-3.png)
 
 
 
 C. Update your nameserver resolver to a dummy IP(such as 8.8.8.1) and try accessing the 
 hashedin.com domain.
+commands:
+```
+ping hashedin.com
+sudo cp /etc/resolv.conf /etc/resolv.conf.bk  -- to save backup
+sudo nano /etc/resolv.conf -- replavce nameserver with dummy ip (8.8.8.1)
+ping hashedin.com -- this will give errror
+sudo cp /etc/resolv.conf.bk /etc/resolv.conf  -- copy original nameservers
+ping hashedin.com -- it will work
+```
 
+
+![alt text](image-4.png)
 
 
  
