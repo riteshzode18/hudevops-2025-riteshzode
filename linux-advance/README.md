@@ -133,3 +133,62 @@ packets.
  
 5. Build and validate a PKI setup using your Own CA. The PKI should be used to secure an NGINX 
 server and perform certification verification.
+
+```installation```
+![alt text](image-12.png)
+
+```
+1. setup own cerificate Authority
+```
+![alt text](image-9.png)
+
+```
+2. Create certificate for nginx
+```
+![alt text](image-10.png)
+
+```
+3. Sign the Server Certificate with Your CA
+```
+![alt text](image-11.png)
+
+```
+4.
+1. Create a Directory for SSL Certificates:
+sudo mkdir -p /etc/nginx/ssl
+sudo cp server.crt server.key ca.crt /etc/nginx/ssl/
+2. Edit the NGINX Configuration
+sudo nano /etc/nginx/sites-available/default
+```
+```
+server {
+    listen 443 ssl;
+    server_name localhost;
+
+    ssl_certificate /etc/nginx/ssl/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/server.key;
+    ssl_client_certificate /etc/nginx/ssl/ca.crt;
+    ssl_verify_client on;
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+```
+
+```
+5. Test and Reload NGINX
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+```
+6. Validate the PKI Setup
+curl -v --cacert ca.crt https://localhost
+```
+
+![alt text](image-13.png)
+
+
+### project working
