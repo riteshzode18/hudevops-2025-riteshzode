@@ -91,7 +91,12 @@ How can I capture and analyze HTTP traffic generated on a locally hosted server(
 network activity?
 
 i) What methods can be used to capture only HTTP traffic on a specific port for detailed 
-inspection of requests and responses? 
+inspection of requests and responses?
+
+```
+sudo tcpdump -i any tcp port 8080 -w capture.pcap
+```
+
 ii) How can one isolate and interpret different HTTP methods and status codes from a larger 
 volume of captured traffic? 
 iiI) What techniques allow extraction of specific HTTP header fields, such as Host, User_agent, or 
@@ -102,6 +107,17 @@ v) List the TCP handshake and session initiation for the HTTP traffic on port 80
 3. Simulate two isolated network namespaces be created on a single host, such that each 
 environment runs a separate process and both are connected via a common virtual bridge, 
 allowing them to communicate with each other (e.g., ping each other)? 
+
+```
+Explain:
+1. create 2 network namespace
+2. create a virtual bridge
+3. connect both namespace to bridge
+4. assign ips and bring up interface
+5. check communication 
+6. delete all network and bridge
+```
+![alt text](image-6.png)
  
 4. Spin up two Ubuntu VMs in Vmware – VM1 and VM2.
 4.1 Configure a custom route in VM1 to forward traffic to 9.9.9.9 to be forwarded to 
