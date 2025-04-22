@@ -213,8 +213,25 @@ ip a
 Configure a custom route in VM1 to forward traffic to 9.9.9.9 to be forwarded to VM2 and verify 
 using tcpdump. Make sure that ping to 9.9.9.9 receives reply by configuring VM2 to forward the 
 packets.
+```
+1. ip forwarding enable in vm2
+sudo sysctl -w net.ipv4.ip_forward=1
 
+2. assign 9.9.9.9 to vm2
+sudo ip addr add 9.9.9.9/32 dev ens33
 
+3. add custom route to vm1
+sudo ip route add 9.9.9.9/32 via 192.168.252.129
+
+4. start tcp dump on vm2
+sudo tcpdump -i ens33 host 9.9.9.9
+
+5. ping 9.9.9.9 on vm1
+ping 9.9.9.9
+
+```
+
+![alt text](image-18.png)
 
 
 
