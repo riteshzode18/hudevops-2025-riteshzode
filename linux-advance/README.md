@@ -84,11 +84,12 @@ ping hashedin.com -- it will work
 ![alt text](image-4.png)
 
 
- 
-3. Network Analysis 
+2. Network Analysis
+
 How can I capture and analyze HTTP traffic generated on a locally hosted server(running on port 
 8080) under synthetic load to understand request patterns, response behavior, and overall 
-network activity? 
+network activity?
+
 i) What methods can be used to capture only HTTP traffic on a specific port for detailed 
 inspection of requests and responses? 
 ii) How can one isolate and interpret different HTTP methods and status codes from a larger 
