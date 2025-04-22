@@ -74,9 +74,9 @@ commands:
 ```
 ping hashedin.com
 sudo cp /etc/resolv.conf /etc/resolv.conf.bk  -- to save backup
-sudo nano /etc/resolv.conf -- replavce nameserver with dummy ip (8.8.8.1)
+sudo nano /etc/resolv.conf -- replace nameserver with dummy ip (8.8.8.1)
 ping hashedin.com -- this will give errror
-sudo cp /etc/resolv.conf.bk /etc/resolv.conf  -- copy original nameservers
+sudo cp /etc/resolv.conf.bk /etc/resolv.conf  -- copy original nameservers from backup
 ping hashedin.com -- it will work
 ```
 
