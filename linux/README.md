@@ -207,7 +207,15 @@ sudo chmod 770 Project-HU
 
 Create a script deploy.sh inside /Project-HU that prints “Project is Live” when executed. Set the execute permissions on deploy.sh using numeric methods. Confirm and display the permissions using the ls -l command. 
 ```
+mkdir Project-HU
+nano Project-HU/deploy.sh
 
+write in file
+
+#!/bin/bash
+echo "Project is Live"
+
+chmod +x Project-HU/deploy.sh
 ```
 
 
@@ -256,7 +264,6 @@ ls -la /home
 ![alt text](image-13.png)
 
 
-
 4. Complete the below set of instructions to complete this question: 
 
 List all the current running processes in the system. 
@@ -288,14 +295,23 @@ kill %1
 ![alt text](image-16.png)
 
 Start a “sleep” process and find it ID, lower its priority, and verify the priority. 
+```
+sleep 1000&
+ps -aux | grep sleep
+renice +10 <process-id>
+```
 
 Check how many available disks attached to the server and distinguish between OS disk and other disks attached to the server. 
+```
+ps -0 pid,ni,comm -p <process-id>
+```
 
 Check the available disk space. Find the 3 largest files or directories in your /home directory. 
 
 commands:
 ```
 lsblk
+du -ah /home | sort -rh | head -n 3
 ```
 ![alt text](image-17.png)
 
@@ -303,7 +319,9 @@ Create a dummy file of size 10MB and confirm the file size.
 
 commands:
 ```
+dd if=/dev/zero of=dummy_file.txt bs=1M count=10
 
+ls -lh dummy_file.txt
 ```
 
 Set environment variables of your size and display them. 
