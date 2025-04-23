@@ -56,12 +56,87 @@ o Show cache memory.
 o Increase the ulimit for the current user to 1028.
 o Change the time zone to Brussels, Belgium.
 
+```
+system_info.sh
+#!/bin/bash
+
+echo "System Information"
+
+echo "OS Version:"
+cat /etc/os-release
+
+echo "Kernel Version:"
+uname -r
+
+echo "Uptime:"
+uptime
+
+echo "Memory Details:"
+free -h
+
+echo "CPU Cores:"
+nproc
+
+echo "Swap Details:"
+swapon --show
+
+echo "Free & Available Memory"
+free -h
+
+echo "Cache Memory"
+free -h | grep "buff/cache"
+
+echo "Increasing ulimit"
+
+
+
+sudo timedatectl set-timezone Europe/Brussels
+echo "Current Time Zone:"
+timedatectl
+
+```
+
 ii. Create a shell script to assess password strength:
 o Minimum characters should be 10.
 o Should contain both alphabet and number.
 o Should include both small and capital case letters.
 o If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
 
+```
+password.sh
+#!/bin/bash
+
+# take the input
+
+read -p "Enter your password: " password
+echo
+
+# Check length of password (min 10)
+
+if [[ ${#password} -lt 10 ]]; then
+    echo "<Weak Password> -- Minimum characters should be 10"
+    exit 1
+fi
+
+# password contain alphabet (a-z) (A-Z) and number (0-9)
+
+if ! [[ "$password" =~ [a-zA-Z] && "$password" =~ [0-9] ]]; then
+    echo "<Weak Password> - Should contain both alphabets and numbers."
+    exit 1
+fi
+
+# password contain small alphabet (a-z) and capital alphabet(A-Z)
+
+if ! [[ "$password" =~ [a-z] && "$password" =~ [A-Z] ]]; then
+    echo "<Weak Password> - Should include both small and capital letters."
+    exit 1
+fi
+
+# if all test passed
+echo "Password is strong."
+
+```
+![alt text](image.png)
 
 2. JSON Data Processing, File Structure, and Nginx Deployment Shell Script
 
@@ -112,6 +187,8 @@ ii. Write a shell script to create the specified file structure.
 iii. Write a shell script that takes a directory as input(q4) and counts the total number of different types of files and directories present in the input directory. Check if a file is executable, and if it is a .sh file, decide whether it is executable or not.
 o expected Output – File 'q4/file.sh' is not executable or found File 'q4/file.sh' has been made executable sh: 1 py: 1 yml: 1 md: 2 ts: 1 tf: 1
 js: 1 txt: 2 directories: 5
+
+
 iv. Write a shell script named deploy_nginx.sh to:
 o Check if Nginx is installed on the system.
 o If Nginx is not installed, install it using the appropriate package manager.
@@ -121,6 +198,7 @@ o Attach a screenshot of the custom webpage in the browser.
 ```
 deploy_nginx.sh
 
+#!/bin/bash
 if ! command -v nginx > /dev/null 2>&1;
 then
   echo "Nginx is not install"
