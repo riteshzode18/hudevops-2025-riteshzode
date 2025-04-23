@@ -1,5 +1,8 @@
 ### Git questions:
 
+
+## 1st question git project url
+
 [project code](https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm)
 
 ```
@@ -24,7 +27,7 @@ git init
 o Establish a connection to your remote repo in GitHub. -> HU-DevOps-25-<Deloitte_id>
 
 ```
-git remote add origin <url>
+git remote add origin https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/
 git push origin main
 ```
 
