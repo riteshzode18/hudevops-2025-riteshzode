@@ -403,3 +403,27 @@ sed -i 's/Manager/Team Lead/g' data.txt
 echo "Replacement done. Updated file:"
 cat data.txt
 ```
+
+```
+backup.sh
+#!/bin/bash
+
+# source dirctry
+source_dir=foulder_source
+# destination directry
+destination_dir=foulder_dest
+
+
+# check if directry exist or create it
+
+# copy all files and foulder form soure to destination directry
+
+# all logs will be created in logs file
+1. backup logs
+2. error logs
+
+echo "backup successs"
+
+```
+
+### same logic in powershell
