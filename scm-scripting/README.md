@@ -343,3 +343,44 @@ o Handle errors, such as no directory or no backup folder.
 III. Write a PowerShell script to:
 o Copy all files from the source directory to the backup directory.
 o Create backup.log file and store all the logs of the copied files with the below format: <Timestamp> – Copied file: <source file name> to <path of the target file>. Example: 2025-04-09 10:43:02 – Copied file: file1.txt to C:\Users\user1\backup\file1.txt
+
+
+```
+data.txt
+
+John Doe, 30, Manager
+Jane Smith, 25, Developer
+Alice Johnson, 35, Manager
+Bob Brown, 28, Developer
+Carol White, 40, Designer
+David Black, 32, Manager
+Emily Davis, 29, Developer
+Frank Harris, 45, Designer
+Grace Lee, 38, Manager
+```
+
+```
+text_processing.sh
+#!/bin/bash
+
+# Check if data.txt exists
+if [[ ! -f "data.txt" ]]; then
+    echo "Error: data.txt file not found!"
+    exit 1
+fi
+
+# Total number of people in each designation
+# add filetr on designation and do count
+
+
+
+# List all existing people names
+echo "people names"
+awk -F, '{print $1}' data.txt
+
+# Replace "Manager" with "Team Lead" in the file
+echo "Replacing 'Manager' with 'Team Lead'"
+sed -i 's/Manager/Team Lead/g' data.txt
+echo "Replacement done. Updated file:"
+cat data.txt
+```
