@@ -62,6 +62,8 @@ ii. Let’s assume a scenario, where your code in the assignments/scm branch is 
 
 o Make sure the all the changes to main goes through PR.
 
+![alt text](image-10.png)
+`
 o Now, you already have changes in dev as part of ongoing development. And you need to ensure that the dev branch maintains a linear commit history with the main branch after the hotfix, by making sure that new commits in the main are added to your dev commit history. How are you going to handle it?
 
 Submission Requirements:
