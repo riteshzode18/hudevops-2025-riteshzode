@@ -2,19 +2,31 @@
 
 [project code](https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm)
 
+```
+https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm
+```
+
 1.
 
 i. Explain the use of Git LFS, and how it can be configured for a repository that frequently deals with large binary files.
 
 ```
-git lfs is use to track large files
+git lfs is use to track large files in git
 
 ```
 
 ii. Initialization and Remote management:
 Initialize a Git repository locally in a directory with naming convention SCM_Scripting, and complete following instruction:
+```
+git init
+```
 
 o Establish a connection to your remote repo in GitHub. -> HU-DevOps-25-<Deloitte_id>
+
+```
+git remote add origin <url>
+git push origin main
+```
 
 o Pull the branch assignments/scm
 o create a branch name dev from it, and work on this branch.
