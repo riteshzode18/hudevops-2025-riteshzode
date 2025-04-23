@@ -47,15 +47,30 @@ o Now that you have uncommitted changes in your working directory. You also real
 o Once the changes are undo continue with your uncommited changes.
 o Explain and show how you are managing the above issues.
 
+```
+git checkout dev
+git reset --soft HEAD~1
+git stash
+git reset --hard HEAD~1
+git stash list
+git stash pop
+git add .
+git commit -m "fixed mistake and continue working"
+```
+
 ii. Let’s assume a scenario, where your code in the assignments/scm branch is in production, and a bug is discovered that needs an immediate fix. So, you create a hotfix branch, make the necessary changes, and push the fix to the assignments/scm branch.
+
 o Make sure the all the changes to main goes through PR.
+
 o Now, you already have changes in dev as part of ongoing development. And you need to ensure that the dev branch maintains a linear commit history with the main branch after the hotfix, by making sure that new commits in the main are added to your dev commit history. How are you going to handle it?
+
 Submission Requirements:
 • Provide proper screenshots of your terminal of execution of all the git commands.
 • Include a screenshot of your folder structure in the file explorer, contents of the file wherever required.
 • Include commit history log wherever required to showcase the completion.
 • Include proper comments and explanation to all the images and details documented.
 
+![alt text](image-9.png)
 
 
 ### Shell Scripting questions:
