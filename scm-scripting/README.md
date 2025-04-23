@@ -1,4 +1,7 @@
 ### Git questions:
+
+[project code](https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm)
+
 1.
 
 i. Explain the use of Git LFS, and how it can be configured for a repository that frequently deals with large binary files.
@@ -31,9 +34,6 @@ git
 iv. Finally push all these changes to the repo.
 o Create a Pull request to merge dev into assignments/scm, and merge it.
 o Also make sure your local repo is up to date with your remote repo.
-
-
-[project code](https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm)
 
 
 ![alt text](image-8.png)
