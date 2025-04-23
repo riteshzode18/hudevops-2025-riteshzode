@@ -72,8 +72,11 @@ Submission Requirements:
 • Include commit history log wherever required to showcase the completion.
 • Include proper comments and explanation to all the images and details documented.
 
-![alt text](image-9.png)
+## create linear history in dev branch
+![alt text](image-11.png)
 
+## complte flow 
+![alt text](image-12.png)
 
 ### Shell Scripting questions:
 
