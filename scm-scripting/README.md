@@ -118,6 +118,28 @@ o If Nginx is not installed, install it using the appropriate package manager.
 o Copy a custom HTML file (should print your name) to the Nginx HTML directory.
 o Restart the Nginx service to apply the changes.
 o Attach a screenshot of the custom webpage in the browser.
+```
+deploy_nginx.sh
+
+if ! command -v nginx > /dev/null 2>&1;
+then
+  echo "Nginx is not install"
+  sudo apt update -y && sudo apt install nginx -y
+  echo "Nginx install done"
+else
+  echo "Nginx is install"
+fi
+
+echo "<h1>Ritesh Zode</h1>" > content.html
+
+sudo cp content.html /var/www/html/index.html
+
+sudo systemctl restart nginx
+
+echo "Deployment Success"
+```
+![image](https://github.com/user-attachments/assets/1871b197-3472-4e27-884f-ca554a9ab3bb)
+
 
 
 3. Text Processing and Backup Shell Script and a PowerShell Backup Script
