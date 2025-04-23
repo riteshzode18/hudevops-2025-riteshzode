@@ -182,12 +182,89 @@ Use the below json file:
 }
 ```
 
+```
+#!/bin/bash
+
+JSON_FILE="users.json"
+
+# 1. Extract all the names from a JSON file and display them
+echo "All user names:"
+jq -r '.users[].name' "$JSON_FILE"
+
+
+# 2. Filter the JSON data where the user age is above 30 and create a new JSON file with the filtered data
+echo "Filtered users (age > 30)"
+jq '{users: [.users[] | select(.age > 30)]}' "$JSON_FILE"
+
+
+# 3. Calculate the average age of all users and display it.
+# 3. Calculate the average age of all users
+TOTAL_AGE=$(jq '[.users[].age] | add' "$JSON_FILE")
+USER_COUNT=$(jq '.users | length' "$JSON_FILE")
+AVERAGE_AGE=$(echo "$TOTAL_AGE / $USER_COUNT" | bc -l)
+
+echo "Average age of users:" "$AVERAGE_AGE"
+```
+![alt text](image-5.png)
+
 ii. Write a shell script to create the specified file structure.
+![alt text](image-1.png)
+
+```
+foulder_create.sh
+#!/bin/bash
+
+mkdir q4
+cd q4
+
+mkdir -p dir1/dir2/dir3/dir4
+
+touch file.md file.sh file.yml
+
+touch dir1/file1.js
+touch dir1/file1.txt
+touch dir1/file2.md
+
+touch dir1/dir2/file2.ts
+touch dir1/dir2/file2.txt
+
+touch dir1/dir2/dir3/dir4/file4.py
+touch dir1/dir2/dir3/dir4/file5.py
+
+cd ..
+tree q4
+
+```
+![alt text](image-2.png)
 
 iii. Write a shell script that takes a directory as input(q4) and counts the total number of different types of files and directories present in the input directory. Check if a file is executable, and if it is a .sh file, decide whether it is executable or not.
 o expected Output – File 'q4/file.sh' is not executable or found File 'q4/file.sh' has been made executable sh: 1 py: 1 yml: 1 md: 2 ts: 1 tf: 1
 js: 1 txt: 2 directories: 5
 
+```
+count.sh
+#!/bin/bash
+
+# Prompt the user to enter a directory
+read -p "Enter the directory path: " dir
+
+# Check if the directory exists
+if [[ ! -d "$dir" ]]; then
+    echo "Directory '$dir' does not exist."
+    exit 1
+fi
+
+# Count the number of files
+file_count=$(find "$dir" -type f | wc -l)
+
+# Count the number of directories
+dir_count=$(find "$dir" -type d | wc -l)
+
+# Display the nos
+echo "Number of files: $file_count"
+echo "Number of directories: $dir_count"
+```
+![alt text](image-3.png)
 
 iv. Write a shell script named deploy_nginx.sh to:
 o Check if Nginx is installed on the system.
