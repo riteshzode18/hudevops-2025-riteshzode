@@ -3,27 +3,40 @@
 
 i. Explain the use of Git LFS, and how it can be configured for a repository that frequently deals with large binary files.
 
+```
+git lfs is use to track large files
+
+```
+
 ii. Initialization and Remote management:
 Initialize a Git repository locally in a directory with naming convention SCM_Scripting, and complete following instruction:
+
 o Establish a connection to your remote repo in GitHub. -> HU-DevOps-25-<Deloitte_id>
+
 o Pull the branch assignments/scm
 o create a branch name dev from it, and work on this branch.
 o set up similar folder structure depicted below.
 o And commit files while ensuring all .tmp files inside src folder alone are not tracked by Git.
 
+![alt text](image-7.png)
+
 iii. Branching and Merging
 Assuming you are working on some development of two new features. You will create two feature branches from the dev branch. And, you have created a third branch test.
+
 o In both the feature branches you work on same file (main.txt), make a commit respectively in both branches.
 o Merge feature2 into feature1.
 o Create three commits in test branch. Now, you want only the second commit changes to be added in your feature1.
 o Finally merge the feature1 to dev and delete all the branches except assignments/scm and dev.
-
+git 
 iv. Finally push all these changes to the repo.
 o Create a Pull request to merge dev into assignments/scm, and merge it.
 o Also make sure your local repo is up to date with your remote repo.
 
 
+[project code](https://github.com/riteshzode18/HU-DevOps-25-rkishorzode/tree/assignments/scm)
 
+
+![alt text](image-8.png)
 
 2.
 
