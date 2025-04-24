@@ -46,8 +46,7 @@ code: code/dict_mapping.py
 ![alt text](image-2.png)
 
 
- Merge following two Python dictionaries into one 
-
+Merge following two Python dictionaries into one
 
 
 dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30} 
@@ -92,9 +91,18 @@ Output 1:
 
 1 2 1 
 
+code: code/pascal_triangle.py
+
+![alt text](image-6.png)
 
 2. Write a program to print the following pattern 
 
 ![alt text](image-5.png)
+
+
+code: code/pattern.py
+
+
+
 
 
