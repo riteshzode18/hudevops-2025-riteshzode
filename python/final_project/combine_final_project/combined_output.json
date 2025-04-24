@@ -1,0 +1,59 @@
+{
+  "json_file_data": {
+    "deployment_name": "Microservice-A",
+    "environment": "production",
+    "max_retries": 5,
+    "server_url": "https://www.python.org/"
+  },
+  "yaml_file_data": {
+    "microservice_enabled": true,
+    "max_connections": 100,
+    "database_url": "mongodb://localhost:27017",
+    "log_level": "info"
+  },
+  "system_health": {
+    "memory_info": {
+      "total_memory": 15.27850341796875,
+      "available_memory": 3.7751121520996094,
+      "used_memory": 11.50339126586914,
+      "memory_percentage": 75.3
+    },
+    "cpu_info": {
+      "physical_cores": 8,
+      "total_cores": 16,
+      "processor_speed": 2646.0,
+      "cpu_usage_per_core": {
+        "0": 10.8,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 1.6,
+        "4": 3.1,
+        "5": 0.0,
+        "6": 1.5,
+        "7": 1.6,
+        "8": 3.1,
+        "9": 0.0,
+        "10": 3.0,
+        "11": 0.0,
+        "12": 0.0,
+        "13": 6.3,
+        "14": 1.6,
+        "15": 0.0
+      },
+      "total_cpu_usage": 6.0
+    },
+    "disk_info": {
+      "C:\\": {
+        "total_space": 475.81347274780273,
+        "used_space": 150.87517547607422,
+        "free_space": 324.9382972717285,
+        "usage_percentage": 31.7
+      }
+    }
+  },
+  "scraped_website_data": {
+    "url": "https://www.python.org/",
+    "status_code": 200,
+    "title": "Welcome to Python.org"
+  }
+}
