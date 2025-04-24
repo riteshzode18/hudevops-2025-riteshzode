@@ -1,0 +1,6 @@
+{
+  "deployment_name": "Microservice-A", 
+  "environment": "production", 
+  "max_retries": 5, 
+  "server_url": "https://www.python.org/" 
+} 

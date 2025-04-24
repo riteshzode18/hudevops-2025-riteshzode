@@ -2,7 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 
 # Fetch the HTML content from the Python website
-r = requests.get("https://www.python.org/")
+url = "https://www.python.org/"
+
+r = requests.get(url)
 data = r.text
 print(f"HTTP  status code : {r.status_code}")
 
@@ -26,4 +28,13 @@ for heading in heading_tags:
         print(text.text.strip())
     print()    
         
+
+scraped_data = {
+    'url': url,
+    'status_code': r.status_code,
+    'title': soup.title.string if soup.title else 'No title found',
+}        
+
+print(scraped_data)
+
 
