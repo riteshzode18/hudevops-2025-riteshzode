@@ -2,7 +2,7 @@
 
 ### Loops and Dictionaries: 
 
-Problem  – Data Structures 
+### Problem  – Data Structures 
 ```
 Return all the duplicate values from list of arraylist 
 Input:  
@@ -33,5 +33,68 @@ code: code/merge_two_list.py
 
 ![alt text](image-1.png)
 
+
+### Dictionaries 
+
+Map the dictionary in the following manner 
+Keys = [‘Ten’, ‘Twenty’, ‘Thirty’] 
+
+Value = [10,20,30] 
+
+code: code/dict_mapping.py
+
+![alt text](image-2.png)
+
+
+ Merge following two Python dictionaries into one 
+
+
+
+dict1 = {'Ten': 10, 'Twenty': 20, 'Thirty': 30} 
+
+dict2 = {'Thirty': 30, 'Fourty': 40, 'Fifty': 50 }
+
+code: code/merge_dict.py
+
+![alt text](image-3.png)
+
+
+### Filters:
+
+1. Convert a number to positive if it's negative in the list. Only pass those that are converted from negative to positive to the new list. 
+
+Note: map() function is inside filter() function.     
+
+lst1=[-1000, 500, -600, 700, 5000, -90000, -17500] 
+
+2. Using zip and dict functions create a dictionary which has its key-value pairs coming from lst1 and lst2. 
+
+lst1=["Netflix", "Hulu", "Sling", "Hbo"] 
+
+lst2=[198, 166, 237, 125] 
+
+code: code/filter_demo.py
+
+![alt text](image-4.png)
+
+
+### loops
+
+1. Write a program to input an integer N from user and print pascal triangle up to N rows. 
+
+input - 3 
+
+Output 1: 
+
+1 0 0  
+
+1 1 0  
+
+1 2 1 
+
+
+2. Write a program to print the following pattern 
+
+![alt text](image-5.png)
 
 
