@@ -99,10 +99,64 @@ code: code/pascal_triangle.py
 
 ![alt text](image-5.png)
 
-
 code: code/pattern.py
 
 
+### Final Assignment: 
+
+As a DevOps engineer, you will be required to gather and analyze system health information, configuration details, and website status to generate comprehensive reports. In this assignment, you will practice reading configuration data from JSON and YAML files, monitoring system specifications using the psutil library, scraping website data, and compiling a status report. 
+
+Note : Proper usage of libraries (psutil, requests, beautifulsoup, yaml, json) has to be done . Exception handling , logging  
+
+Task Overview: 
+
+You will create a Python script that: 
+
+Reads configuration data from a JSON and YAML file. 
+
+Monitors and collects system specifications such as CPU usage, memory usage, and disk space using the psutil library. 
+
+Scrapes a website for status-related information such as HTTP status code, page title, and headings. 
+
+Generates a detailed status report (create report in JSON file  )that includes : 
+
+Deployment configuration details from the JSON file.	 
+
+Service configuration details from the YAML file. 
+
+Current system specifications (CPU, memory, disk usage). 
+
+Scraped data from the website (HTTP status, page title, headings). 
+ 
+Website Link : https://www.python.org/ 
+ 
+
+JSON File Link: 
+
+{ 
+
+  "deployment_name": "Microservice-A", 
+
+  "environment": "production", 
+
+  "max_retries": 5, 
+
+  "server_url": "https://www.python.org/" 
+
+} 
+
+
+YAML File Link: 
+
+microservice_enabled: true 
+
+max_connections: 100 
+
+database_url: "mongodb://localhost:27017" 
+
+log_level: "info" 
+
+### project completed
 
 
 
