@@ -1,38 +1,29 @@
-# from bs4 import BeautifulSoup
-# import requests
-
-
-# r = requests.get("https://www.python.org/")
-
-# data = r.text
-# # with open("file.html", mode="w") as f:
-# #     f.write(data)
-
-# soup = BeautifulSoup(data, 'html.parser')
-
-
-# print(soup.prettify())
-
-
-
-# with open("file.html", mode="w") as f:
-#     f.write(soup.prettify())
-
 from bs4 import BeautifulSoup
 import requests
 
 # Fetch the HTML content from the Python website
 r = requests.get("https://www.python.org/")
 data = r.text
+print(f"HTTP  status code : {r.status_code}")
 
-# Parse the HTML content
 soup = BeautifulSoup(data, 'html.parser')
 
-# Print the prettified HTML to the console
+# Print prettified HTML to the console
 # print(soup.prettify())
 
-# Save the prettified HTML to a file
-# with open("file.html", mode="w", encoding="utf-8") as f:
-#     f.write(soup.())prettify
+with open("file.html", mode="w", encoding="utf-8") as f:
+    f.write(soup.prettify())
 
-print(soup.find(id="title"))
+
+print(f"Title : {soup.title.text}")
+
+# heading_tags = ["h1", "h2", "h3", "h4", "h5", "h6"]
+heading_tags = ["h1", "h2"]
+
+for heading in heading_tags:
+    print(f"ALL {heading} HEADINGS")
+    for text in soup.find_all(heading):
+        print(text.text.strip())
+    print()    
+        
+
