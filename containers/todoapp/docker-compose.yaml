@@ -8,10 +8,9 @@ services:
     environment:
       FLASK_ENV: development
       DB_URL: mysql+pymysql://admin:admin@mysql:3306/mydb
-    depends_on:
-      - mysql
     networks:
       - app-network
+    restart: always  
 
   mysql:
     image: docker.io/library/mysql:8.0

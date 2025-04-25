@@ -24,11 +24,11 @@ db.init_app(app)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-file_handler = logging.FileHandler('/var/log/flask-app/app.log')
-file_handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+# file_handler = logging.FileHandler('app.log')
+# file_handler.setLevel(logging.INFO)
+# formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+# file_handler.setFormatter(formatter)
+# logger.addHandler(file_handler)
 
 # Metrics tracking variables
 tasks_created = 0

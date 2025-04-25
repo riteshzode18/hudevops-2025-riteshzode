@@ -13,9 +13,6 @@ COPY requirements.txt ./
 # Install all the Python packages listed in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create the log directory and set permissions
-RUN mkdir -p /var/log/flask-app && chmod -R 777 /var/log/flask-app
-
 # Copy all of our project's files into the /app directory in the container
 COPY . .
 
