@@ -40,7 +40,7 @@ MySQL DB)
 
 code foulder: todoapp
 
-code written -- craeted Dockerfile and composefile but app is not working
+code written -- created Dockerfile and composefile but app is not working
 
 4Q. Set up a multi-container application using Podman Compose
 
