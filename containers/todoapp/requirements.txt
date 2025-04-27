@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+pymysql
+prometheus_client
+psutil
+python-dotenv
