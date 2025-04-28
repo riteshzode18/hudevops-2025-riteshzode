@@ -13,6 +13,8 @@ expose it via an Application Load Balancer
 
 ![alt text](image-2.png)
 
+![alt text](image-16.png)
+
 
 ## Task 2: Serverless Architecture Setup. 
 - Subtask 2.1: Create a sample Python Lambda function. 
