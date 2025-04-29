@@ -67,3 +67,96 @@ Balancer. The ECS Cluster is already created in the AWS account (ecs-hu-devops).
 ![alt text](image-11.png)
 
 ## assignment done
+
+# Cloud Assignment DAY 2
+
+```
+aws ec2 create-security-group --group-name u-devops-25-rkishorzode-sg-allow-80 --description "Security group for web server allowing HTTP" --vpc-id vpc-040e583668e43adf1
+```
+![alt text](image-18.png)
+
+```
+aws ec2 authorize-security-group-ingress --group-id sg-0b323de7fc45b8c43 --protocol tcp --port 80 --cidr 0.0.0.0/0
+```
+![alt text](image-20.png)
+
+```
+aws ec2 run-instances --image-id ami-0e449927258d45bc4 --count 1 --instance-type t2.micro --key-name rkishorzode-key --security-group-ids sg-0b323de7fc45b8c43 --subnet-id subnet-041b4bd98bb3fcb39 --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=hu-devops-25-rkishorzode-ec2}]'
+
+```
+![alt text](image-19.png)
+
+![alt text](image-21.png)
+
+### ssh and install nginx
+```
+sudo yum update -y
+sudo yum install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+![alt text](image-22.png)
+
+```
+aws elbv2 create-target-group \
+    --name hu-devops-25-rkishorzode-tg \
+    --protocol HTTP \
+    --port 80 \
+    --vpc-id vpc-040e583668e43adf1 \
+    --target-type instance
+
+```
+![alt text](image-27.png)
+
+```
+aws elbv2 register-targets \
+    --target-group-arn arn:aws:elasticloadbalancing:us-east-1:714532077193:targetgroup/hu-devops-25-rkishorzode-tg/074fd05f612174ba \
+    --targets Id=i-0a83d921699ba131f
+
+```
+
+![alt text](image-24.png)
+
+![alt text](image-25.png)
+
+```
+aws ec2 create-security-group \
+    --group-name hu-devops-25-rkishorzode-alb-sg \
+    --description "Security group for ALB allowing HTTP" \
+    --vpc-id vpc-040e583668e43adf1
+```
+```
+aws ec2 authorize-security-group-ingress \
+    --group-id sg-0d1a769c5b7f12662 \
+    --protocol tcp \
+    --port 80 \
+    --cidr 0.0.0.0/0
+```
+![alt text](image-26.png)
+
+```
+aws elbv2 create-load-balancer \
+    --name hu-devops-25-rkishorzode-alb \
+    --subnets subnet-041b4bd98bb3fcb39 subnet-07420ce3b6966f11e \
+    --security-groups sg-0d1a769c5b7f12662 \
+    --scheme internet-facing \
+    --type application \
+    --ip-address-type ipv4
+```
+
+![alt text](image-28.png)
+
+```
+aws elbv2 create-listener \
+    --load-balancer-arn arn:aws:elasticloadbalancing:us-east-1:714532077193:loadbalancer/app/hu-devops-25-rkishorzode-alb/693f2a468998ed39 \
+    --protocol HTTP \
+    --port 80 \
+    --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:714532077193:targetgroup/hu-devops-25-rkishorzode-tg/074fd05f612174ba
+```
+
+![alt text](image-29.png)
+
+![alt text](image-30.png)
+
+![alt text](image-31.png)
+
