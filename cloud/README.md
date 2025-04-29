@@ -49,7 +49,7 @@ verify.
 in the previous question, attach the IAM role to the private instances and confirm that you 
 have connectivity and push the nginx conf file to S3 via E2 machine. 
 
-![alt text](image-15.png)
+![alt text](image-17.png)
 
 ![alt text](image-12.png)
 
