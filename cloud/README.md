@@ -70,6 +70,13 @@ Balancer. The ECS Cluster is already created in the AWS account (ecs-hu-devops).
 
 # Cloud Assignment DAY 2
 
+## Task 1: EC2 instance and Application Load Balancer Creation with CLI
+- Subtask 1.1: create an EC2 instance of type t2.micro and attach a security group rule 
+to allow inbound HTTP traffic on port 80 to the EC2 instance.
+- Subtask 1.2: create an Application Load Balancer (ALB) target group and configure 
+another security group for the ALB to allow inbound HTTP traffic on port 80
+
+
 ```
 aws ec2 create-security-group --group-name u-devops-25-rkishorzode-sg-allow-80 --description "Security group for web server allowing HTTP" --vpc-id vpc-040e583668e43adf1
 ```
@@ -160,3 +167,265 @@ aws elbv2 create-listener \
 
 ![alt text](image-31.png)
 
+
+## Task 2: Create Proxy Methods with Load Balancer URL
+- Subtask 2.1: Create a proxy GET and POST method using the Application Load 
+Balancer URL. Ensure that the proxy is configured to route traffic through a Web 
+Application Firewall (WAF) that you create. Using AWS CLI
+
+### Create a Web Application Firewall (WAF) Web ACL
+```
+aws wafv2 create-web-acl \
+    --name hu-devops-25-rkishorzode-web-acl \
+    --scope REGIONAL \
+    --default-action Allow={} \
+    --visibility-config SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=hu-devops-25-rkishorzode-web-acl \
+    --region us-east-1
+```
+![alt text](image-41.png)
+
+### Associate WAF Web ACL with ALB
+```
+aws wafv2 associate-web-acl \
+    --web-acl-arn arn:aws:wafv2:us-east-1:714532077193:regional/webacl/hu-devops-25-rkishorzode-web-acl/92b886a4-56a7-422d-903e-4bcb9040b90d \
+    --resource-arn arn:aws:elasticloadbalancing:us-east-1:714532077193:loadbalancer/app/hu-devops-25-rkishorzode-alb/693f2a468998ed39 \
+    --region us-east-1
+
+```
+
+![alt text](image-42.png)
+
+### Create api gateway
+
+```
+aws apigateway create-rest-api \
+    --name 'hu-devops-25-rkishorzode-proxy-api' \
+    --region us-east-1
+```
+```
+aws apigateway get-rest-apis --region us-east-1
+```
+### Create Resource
+- rest-api-id: Use the id from the new API (4ykgrvqtjd).
+- parent-id: Use the rootResourceId from the new API (eucca6p96j).
+```
+aws apigateway create-resource \
+    --rest-api-id ckzu8e5wme \
+    --parent-id tcmg27iz65 \
+    --path-part proxy \
+    --region us-east-1
+```
+### Create GET and POST Methods
+resource-id will get from create resource
+
+```
+aws apigateway put-method \
+    --rest-api-id ckzu8e5wme \
+    --resource-id b9n2yq \
+    --http-method GET \
+    --authorization-type NONE \
+    --region us-east-1
+```
+```
+aws apigateway put-method \
+    --rest-api-id ckzu8e5wme \
+    --resource-id b9n2yq \
+    --http-method POST \
+    --authorization-type NONE \
+    --region us-east-1
+```
+
+### Set Integration for Methods
+
+```
+aws apigateway put-integration \
+    --rest-api-id ckzu8e5wme \
+    --resource-id b9n2yq \
+    --http-method GET \
+    --type HTTP_PROXY \
+    --integration-http-method ANY \
+    --uri http://hu-devops-25-rkishorzode-alb-693f2a468998ed39.us-east-1.elb.amazonaws.com \
+    --region us-east-1
+```
+```
+aws apigateway put-integration \
+    --rest-api-id ckzu8e5wme \
+    --resource-id b9n2yq \
+    --http-method POST \
+    --type HTTP_PROXY \
+    --integration-http-method ANY \
+    --uri http://hu-devops-25-rkishorzode-alb-693f2a468998ed39.us-east-1.elb.amazonaws.com \
+    --region us-east-1
+```
+### Deploy
+```
+aws apigateway create-deployment \
+    --rest-api-id ckzu8e5wme \
+    --stage-name prod \
+    --region us-east-1
+```
+
+Task 3: Install and Configure Kinesis Agent and NGINX
+- Subtask 3.1: On the same EC2 instance, install the Kinesis Agent and NGINX. 
+Configure NGINX to pass data through a Kinesis stream and direct the data to Kinesis 
+Data Analytics for further analysis. Using AWS Console
+
+
+```
+#!/bin/bash
+
+# Update the package repository
+sudo yum update -y
+
+# Install NGINX
+sudo amazon-linux-extras install nginx1.12 -y
+
+# Start and enable NGINX
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Install Kinesis Agent
+sudo yum install -y aws-kinesis-agent
+
+# Configure NGINX to log requests
+sudo tee /etc/nginx/nginx.conf > /dev/null <<EOL
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format main '\$remote_addr - \$remote_user [\$time_local] "\$request" '
+                    '\$status \$body_bytes_sent "\$http_referer" '
+                    '"\$http_user_agent" "\$http_x_forwarded_for"';
+    access_log /var/log/nginx/access.log main;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    sendfile on;
+    keepalive_timeout 65;
+
+    include /etc/nginx/conf.d/*.conf;
+}
+EOL
+
+# Restart NGINX to apply changes
+sudo systemctl restart nginx
+
+# Create Kinesis Agent configuration
+sudo tee /etc/aws-kinesis/agent.json > /dev/null <<EOL
+{
+  "cloudwatch.emitMetrics": true,
+  "kinesis.endpoint": "kinesis.us-east-1.amazonaws.com",
+  "firehose.endpoint": "firehose.us-east-1.amazonaws.com",
+  "flows": [
+    {
+      "filePattern": "/var/log/nginx/access.log*",
+      "kinesisStream": "hu-devops-25-rkishorzode-kinesis",
+      "dataProcessingOptions": [
+        {
+          "optionName": "LOGTOJSON",
+          "logFormat": "NGINX"
+        }
+      ]
+    }
+  ]
+}
+EOL
+
+# Start and enable the Kinesis Agent
+sudo systemctl start aws-kinesis-agent
+sudo systemctl enable aws-kinesis-agent
+
+```
+
+
+## Task 4: S3 & IAM Creation. 
+- Subtask 4.1: Create a S3 bucket with CORS policy, public access blocked and add 
+lifecycle rule to the bucket: The objects will be moved to the Amazon S3 Glacier 
+storage class in 90 days after creation using AWS CLI. 
+- Subtask 4.2: Create an IAM role with the Policy which will list the objects in the S3 
+bucket which has been created in the previous step and attach that role to the EC2 
+instances using AWS CLI
+
+```
+aws s3api create-bucket \
+    --bucket hu-devops-25-rkishorzode-s3 \
+    --region us-east-1
+```
+```
+aws s3api put-bucket-cors \
+    --bucket hu-devops-25-rkishorzode-s3 \
+    --cors-configuration file://cors.json
+```
+```
+aws s3api put-public-access-block \
+    --bucket hu-devops-25-rkishorzode-s3 \
+    --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
+```
+```
+aws s3api put-bucket-lifecycle-configuration \
+    --bucket hu-devops-25-rkishorzode-s3 \
+    --lifecycle-configuration file://lifecycle.json
+```
+![alt text](image-32.png)
+
+- S3 Bucket Created: hu-devops-25-rkishorzode-s3
+- CORS Policy: Allows GET requests from any origin.
+- Public Access Blocked: Ensures the bucket is not publicly accessible.
+- Lifecycle Rule: Moves objects to Glacier after 90 days.
+
+![alt text](image-34.png)
+
+![alt text](image-33.png)
+
+![alt text](image-35.png)
+
+- Create IAM Role: Create an IAM role with a policy that lists objects in the S3 bucket.
+- Attach Role to EC2: Attach the created IAM role to the EC2 instance using AWS CLI.
+- Access Bucket: The policy allows listing objects in the bucket hu-devops-25-rkishorzode-s3.
+- Restrict Object Access: The policy does not allow access to the objects themselves.
+
+
+## Task 5: Deploy Docker Application on App Runner and Configure Auto Scaling for App 
+Runner Service
+- Subtask 5.1: Using AWS CLI, create and deploy a Docker application on AWS App 
+Runner. For configuring the App Runner service, use a YAML configuration file.
+- Subtask 5.2: Configure auto scaling for the App Runner service created, setting the 
+minimum number of instances to 1 and the maximum number of instances to 2
+
+
+file: apprunner-config.json
+```
+aws apprunner create-service --cli-input-json file://apprunner-config.json
+```
+
+![alt text](image-36.png)
+
+
+```
+aws apprunner create-auto-scaling-configuration \
+    --auto-scaling-configuration-name my-auto-scaling-config \
+    --max-concurrency 100 \
+    --min-size 1 \
+    --max-size 2
+```
+![alt text](image-37.png)
+
+
+```
+aws apprunner update-service \
+    --service-arn arn:aws:apprunner:us-east-1:714532077193:service/hu-devops-25-rkishorzode-apprunner/8fdf0e3a031a430e8e78c15fcc8408a6 \
+    --auto-scaling-configuration-arn arn:aws:apprunner:us-east-1:714532077193:autoscalingconfiguration/my-auto-scaling-config/1/e0d61fd350d548c7a39bca582991f92c
+```
+
+![alt text](image-38.png)
+
+![alt text](image-39.png)
+
+![alt text](image-40.png)

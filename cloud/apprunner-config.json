@@ -1,0 +1,19 @@
+{
+    "ServiceName": "hu-devops-25-rkishorzode-apprunner",
+    "SourceConfiguration": {
+        "ImageRepository": {
+            "ImageIdentifier": "public.ecr.aws/s7u6c0j7/rkishorzode-nginx:latest",
+            "ImageConfiguration": {
+                "Port": "80",
+                "RuntimeEnvironmentVariables": {
+                    "NAME": "Jane"
+                }
+            },
+            "ImageRepositoryType": "ECR_PUBLIC"
+        }
+    },
+    "InstanceConfiguration": {
+        "Cpu": "0.5 vCPU",
+        "Memory": "1 GB"
+    }
+}
