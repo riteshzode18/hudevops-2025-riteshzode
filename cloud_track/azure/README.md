@@ -32,6 +32,16 @@ VM created which you have been created as part of this question.
 D. Create a new VM using previously created snapshot and verify it is using 
 custom webpage. (Screen shot to be captured on browser/curl request)
 
+![alt text](image-16.png)
+
+![alt text](image-20.png)
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
+![alt text](image-17.png)
+
 ## Question:2
 
 Create a Virtual Machine Scale Set. The resource should follow the naming 
@@ -53,6 +63,14 @@ Storage Account with boot diagnostics
 Cloud-init file 
 Screen shot on scaling 
 
+![alt text](image-10.png)
+
+![alt text](image-12.png)
+
+![alt text](image-11.png)
+
+![alt text](image-9.png)
+
 
 ## Question:3
 Create a Standard Load Balancer. The resource should follow the naming 
@@ -68,6 +86,11 @@ Health Probes
 Load Balancer IP 
 Web page on Load Balancer IP 
 
+![alt text](image-13.png)
+
+![alt text](image-15.png)
+
+![alt text](image-14.png)
 
 ## Question:4
 Use Azure container registry named (huregistry) create your own repository by 
@@ -79,6 +102,12 @@ Expectation: Attach screenshots for the following:
 • Web App overview 
 • Nginx homepage 
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
 
 ## Question:5
 Create a Storage Account “hudevops25{Linker_Name}{Resource_Name}”, provision a static 
@@ -89,4 +118,16 @@ Index Document
 Error Document 
 Blob endpoint on Browser 
 Create a Lifecyle policy to move objects to cool storage after 30 days
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
+![alt text](image-8.png)
 
