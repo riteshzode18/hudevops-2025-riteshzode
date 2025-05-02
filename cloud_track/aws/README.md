@@ -212,7 +212,7 @@ aws apigateway get-rest-apis --region us-east-1
 aws apigateway create-resource \
     --rest-api-id ckzu8e5wme \
     --parent-id tcmg27iz65 \
-    --path-part proxy \
+    --path-part '{proxy+}' \
     --region us-east-1
 ```
 ### Create GET and POST Methods
