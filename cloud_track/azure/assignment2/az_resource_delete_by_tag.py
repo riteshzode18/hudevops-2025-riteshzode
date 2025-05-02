@@ -3,8 +3,8 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 
 # Set your Azure subscription ID and tag key-value pair
-subscription_id = 'your-subscription-id'
-tag_key = 'tag1'
+subscription_id = 'your-id'
+tag_key = 'key1'
 tag_value = 'value1'
 
 # Authenticate using Azure SDK
