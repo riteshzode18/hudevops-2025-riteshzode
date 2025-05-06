@@ -145,6 +145,12 @@ YourName_sub_Vnet.csv and push it to container which you created
 previously (Use Azure Cloud CLI) (Don’t use azure portal for uploading 
 the file)
 
+![alt text](image-27.png)
+
+![alt text](image-28.png)
+
+![alt text](image-29.png)
+
 ## Question:2
 
 
@@ -156,6 +162,12 @@ container app environment ( HU-DevOps-25-CAE , with cpu 0.25 --
 memory 0.5Gi)
 - Verify the azure container app you created by hitting its URL in the 
 browser and capture the screen shot.
+
+![alt text](image-24.png)
+
+![alt text](image-26.png)
+
+![alt text](image-25.png)
 
 ## Question:3
 
@@ -169,6 +181,12 @@ you created.
 - Confirm the app service you created by hitting the endpoint in the browser and 
 capture the screen shot .
 
+![alt text](image-21.png)
+
+![alt text](image-22.png)
+
+![alt text](image-23.png)
+
 ## Question:4
 
  Setup and Automate Azure Storage and Function App using Azure Bicep 
@@ -177,7 +195,7 @@ capture the screen shot .
 Account. 
 - Deploy a Function App using the Consumption Plan (Y1 SKU) via Bicep. 
 - Upload 2 files named file1.txt and file2.txt to container-a. 
-- Write a Python script to transfer the file1.txt s from container-a to containerb. 
+- Write a Python script to transfer the file1.txt s from container-a to container-b. 
 - Deploy the Python script to the Function App and run the python script to 
 transfer the file1.txt file to container-b. 
 - Tag all the resources with the mentioned format 
@@ -188,3 +206,11 @@ transfer the file1.txt file to container-b.
 
 - Write a python script to delete all the files and the container, storage account, 
 webapp , app service plans all other resources which is associated with your Tags.
+
+![alt text](image-30.png)
+
+![alt text](image-31.png)
+
+![alt text](image-32.png)
+
+## Assignmnet Done

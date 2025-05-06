@@ -1,0 +1,15 @@
+"VnetName","SubnetName","SubnetAddressPrefix"
+"HU-DevOps-25-VNET","default","10.2.0.0/24"
+"HU-DevOps-25-VNET","snet-eastus-1",
+"HU-DevOps-25-VNET","hu-devops-25-draghav-subnet",
+"HU-DevOps-25-VNET","snet-eastus-2",
+"HU-DevOps-25-VNET","snet-eastus-3",
+"HU-DevOps-25-VNET","AzureBastionSubnet","10.2.1.0/26"
+"vnet-eastus-2","snet-eastus-1",
+"vnet-eastus-3","snet-eastus-1",
+"HU-DevOps-25-VNET-asr","default","10.2.0.0/24"
+"HU-DevOps-25-VNET-asr","snet-eastus-1","10.2.2.0/24"
+"HU-DevOps-25-VNET-asr","hu-devops-25-draghav-subnet","10.2.3.0/24"
+"HU-DevOps-25-VNET-asr","snet-eastus-2","10.2.4.0/24"
+"HU-DevOps-25-VNET-asr","snet-eastus-3","10.2.5.0/24"
+"HU-DevOps-25-VNET-asr","AzureBastionSubnet","10.2.1.0/26"
