@@ -131,7 +131,7 @@ Create a Lifecyle policy to move objects to cool storage after 30 days
 
 ![alt text](image-8.png)
 
-## # Cloud Assignment DAY 1
+# Cloud Assignment DAY 2
 
 
 ## Question:1
@@ -200,6 +200,25 @@ Account.
 transfer the file1.txt file to container-b. 
 - Tag all the resources with the mentioned format 
 - Use Parameters, variables , modules 
+
+```bash
+az deployment group create --resource-group rkishorzode-resource-group --template-file main.bicep
+```
+
+![alt text](image-39.png)
+
+![alt text](image-33.png)
+
+![alt text](image-34.png)
+
+![alt text](image-35.png)
+
+![alt text](image-36.png)
+
+![alt text](image-37.png)
+
+![alt text](image-38.png)
+
 
 ## Question:5
 
