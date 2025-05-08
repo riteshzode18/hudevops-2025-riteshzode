@@ -164,4 +164,15 @@ frontend and backend services.
 e. Test the deployment by accessing the application through the load balancer's IP 
 address or URL
 
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+![alt text](image-14.png)
+
+![alt text](image-15.png)
+
+![alt text](image-16.png)
 
