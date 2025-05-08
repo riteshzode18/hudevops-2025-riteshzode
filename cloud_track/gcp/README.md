@@ -107,3 +107,61 @@ d. Upload a file to the bucket and verify that the event-driven workflow is
 executed
 
 ![alt text](image-1.png)
+
+
+
+
+# Cloud Assignment DAY 2
+
+
+1. Cloud Run with Custom Docker Image:
+• Objective: Deploy a custom Docker image to Cloud Run using Google Container 
+Registry (GCR).
+• Steps:
+a. Clone the repository from https://github.com/Deloitte-US/HU_24_DevOps_Sample_Application.
+b. Build a Docker image from the provided code.
+c. Push the Docker image to your GCR repository.
+d. Deploy the Docker image to Cloud Run using the cli command.
+e. Expose the application using load balancer.
+f. Verify the deployment by accessing the LB UR
+
+
+![alt text](image-10.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
+
+2. Cloud Function with API Gateway Integration:
+• Objective: Create a simple "Hello World" Cloud Function and integrate it with an API 
+Gateway.
+• Steps:
+a. Create a new Cloud Function in GCP with a "Hello World" response.
+b. Set up an API Gateway and create an API config to route requests to the Cloud 
+Function.
+c. Assign the necessary IAM roles to the Cloud Function and API Gateway.
+d. Deploy the API Gateway and test the integration by sending a request to the API 
+Gateway endpoint
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+
+3. Deploying a Two-Tier Application:
+• Objective: Deploy a two-tier application on GCP, exposing it via a load balancer.
+• Steps:
+a. Set up a backend service (e.g., a database) on GCP. 
+b. Set up a frontend service (e.g., a web server) on GCP. 
+c. Configure a load balancer to distribute traffic between the frontend instances. 
+d. Set up firewall rules to allow traffic to the load balancer and between the 
+frontend and backend services. 
+e. Test the deployment by accessing the application through the load balancer's IP 
+address or URL
+
+
