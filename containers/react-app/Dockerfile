@@ -18,18 +18,18 @@ RUN npm run build
 FROM docker.io/library/nginx:1.27-alpine
 
 # Create a non-root user and group
-RUN addgroup -g 1001 appgroup && adduser -u 1001 -G appgroup -D appuser
+#RUN addgroup -g 1001 appgroup && adduser -u 1001 -G appgroup -D appuser
 
 # Copy React build files with ownership set to the non-root user
-COPY --chown=appuser:appgroup --from=builder /app/build /usr/share/nginx/html
+#COPY --chown=appuser:appgroup --from=builder /app/build /usr/share/nginx/html
 
 # Grant permissions to the non-root user for NGINX directories
-RUN chmod -R 755 /usr/share/nginx/html && \
-    mkdir -p /var/cache/nginx/client_temp /run && \
-    chown -R appuser:appgroup /var/cache/nginx /var/run /var/log/nginx /run
+#RUN chmod -R 755 /usr/share/nginx/html && \
+#   mkdir -p /var/cache/nginx/client_temp /run && \
+#    chown -R appuser:appgroup /var/cache/nginx /var/run /var/log/nginx /run
 
 # Switch to the non-root user
-USER appuser
+#USER appuser
 
 # Copy custom NGINX configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf

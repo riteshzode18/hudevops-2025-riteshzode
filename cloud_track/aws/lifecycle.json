@@ -1,0 +1,17 @@
+{
+    "Rules": [
+        {
+            "ID": "Move to Glacier after 90 days",
+            "Status": "Enabled",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Transitions": [
+                {
+                    "Days": 90,
+                    "StorageClass": "GLACIER"
+                }
+            ]
+        }
+    ]
+}
