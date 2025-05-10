@@ -23,3 +23,10 @@ This repository contains assignments for a 5-day training program focused on var
 ### Day 5: Containers and Virtualization
 - Repository: [Containers and Virtualization](https://github.com/riteshzode18/hudevops-2025-riteshzode/tree/containers/containers)
 - Focus: Understanding containers and virtualization technologies
+
+## Week 2: Cloud Platforms
+- Repository: [Cloud Platforms](https://github.com/riteshzode18/hudevops-2025-riteshzode/tree/cloud/cloud_track)
+- AWS Basic & Advanced
+- Azure Basic & Advanced
+- GCP Basic & Advanced
+
