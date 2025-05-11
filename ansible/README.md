@@ -1,5 +1,5 @@
 ### Ansible Assignment
-Task 1: Write the below mentioned roles and call them in the ansible playbook.
+## Task 1: Write the below mentioned roles and call them in the ansible playbook.
 1. Role 1: Deploy a server with the smallest size in AWS (t3.micro). capture the public-ip 
 of the server on the fly.
 2. Role 2: Add the line GatewayPorts clientspecified and update the line
@@ -17,12 +17,14 @@ ii. Role 2
 iii. Role 3 (Should run on the condition when the hostname is 'trainee-name')
 Note: Role 2, 3 should be delegated to the public IP captured on the fly in the playbook.
 The playbook should also have a separate README.md file.
-Task 2: Create an Ansible playbook that incorporates the following roles:
+
+## Task 2: Create an Ansible playbook that incorporates the following roles:
 1. Deploying an EC2 server
 2. Installing Nginx
 3. Deploying a custom homepage using a template
 4. Ensuring the Nginx service is started and enabled.
 The playbook should use handlers as well.
-Task 3: Create an Ansible dynamic inventory script to manage instances deployed 
+
+## Task 3: Create an Ansible dynamic inventory script to manage instances deployed 
 in AWS EC2. The inventory should specifically target instances with the tag 
 role=web and update Nginx on those instances.
