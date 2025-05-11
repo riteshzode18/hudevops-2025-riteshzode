@@ -1,0 +1,13 @@
+---
+- name: Launch EC2 Instance
+  hosts: localhost
+  connection: local
+  become: yes
+  roles:
+    - role: create_ec2
+
+- name: Configure Nginx and Deploy Homepage
+  hosts: launched
+  become: yes
+  roles:
+    - role: nginx_install

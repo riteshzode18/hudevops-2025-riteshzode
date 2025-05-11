@@ -1,0 +1,21 @@
+---
+- name: Update Nginx on Web Servers
+  hosts: web
+  become: yes
+  tasks:
+    - name: Update the system package cache
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
+
+    - name: Install or Update Nginx
+      yum:
+        name: nginx
+        state: latest
+
+    - name: Ensure Nginx is started and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
