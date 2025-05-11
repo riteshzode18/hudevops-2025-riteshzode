@@ -11,7 +11,7 @@ security_groups:
 count: 1
 tag_name: test-ec2-instance
 wait_timeout: 180
-assign_public_ip: true  # Enable public IP assignment
-hosts_file_path: "/home/ritesh/ansible_project/hosts"  # Path to the hosts file
-key_file_path: "/home/ritesh/my_key"  # Path to the key file
-ansible_user: ec2user  # Default user for EC2 instance
+assign_public_ip: true  
+hosts_file_path: "/home/ritesh/ansible_project/hosts" 
+key_file_path: "/home/ritesh/my_key.pem" 
+ansible_user: ec2-user
