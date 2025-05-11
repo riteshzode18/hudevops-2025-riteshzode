@@ -1,0 +1,35 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+    - name: Update SSH configuration to allow TCP forwarding
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?AllowTcpForwarding'
+        line: 'AllowTcpForwarding yes'
+      notify: Restart SSH
+
+    - name: Add GatewayPorts configuration
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: 'GatewayPorts clientspecified'
+      notify: Restart SSH
+
+    - name: Change hostname to trainee-name
+      hostname:
+        name: trainee-name
+
+    - name: Ensure hostname is updated
+      command: hostnamectl set-hostname trainee-name
+
+    - name: Install Apache web server
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+  handlers:
+    - name: Restart SSH
+      service:
+        name: ssh
+        state: restarted
