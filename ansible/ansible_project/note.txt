@@ -1,2 +1,2 @@
 # command to run -- chcek the host file path
-ansible-playbook play_book.yml && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook main.yaml 
+ansible-playbook play_book.yml && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook nginx_install.yaml 
