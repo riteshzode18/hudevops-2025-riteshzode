@@ -18,6 +18,8 @@ iii. Role 3 (Should run on the condition when the hostname is 'trainee-name')
 Note: Role 2, 3 should be delegated to the public IP captured on the fly in the playbook.
 The playbook should also have a separate README.md file.
 
+code : ansible_roles_project
+
 ## Task 2: Create an Ansible playbook that incorporates the following roles:
 1. Deploying an EC2 server
 2. Installing Nginx
@@ -25,6 +27,10 @@ The playbook should also have a separate README.md file.
 4. Ensuring the Nginx service is started and enabled.
 The playbook should use handlers as well.
 
+code : ansible_project
+
 ## Task 3: Create an Ansible dynamic inventory script to manage instances deployed 
 in AWS EC2. The inventory should specifically target instances with the tag 
 role=web and update Nginx on those instances.
+
+code: ansible_dynamic_inventory
