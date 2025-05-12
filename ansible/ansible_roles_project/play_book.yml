@@ -28,6 +28,14 @@
         line: 'GatewayPorts clientspecified'
       notify: Restart SSH
 
+    # before
+    #  #AllowTcpForwarding yes
+    #  #GatewayPorts no
+
+    # after -- they will be uncommented
+    #  AllowTcpForwarding yes
+    #  GatewayPorts clientspecified
+
     # Role 3: Change hostname to trainer_name
     - name: Change hostname to "{{ trainer_name }}"
       hostname:
