@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: MIT-0
+# Variables for creating the EC2 instance
+---
+key_name: hu-devops-25-rkishorzode
+region: us-east-1
+instance_type: t2.micro
+image_id: ami-0f88e80871fd81e91
+vpc_subnet_id: subnet-041b4bd98bb3fcb39
+security_groups:
+  - launch-wizard-42
+count: 1
+tag_name: test-ec2-instance
+wait_timeout: 180
+assign_public_ip: true  
+hosts_file_path: "/home/ritesh/ansible_project/hosts" 
+key_file_path: "/home/ritesh/my_key.pem" 
+ansible_user: ec2-user

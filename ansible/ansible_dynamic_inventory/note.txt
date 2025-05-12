@@ -1,0 +1,7 @@
+1. configure aws
+2. install python requirements.txt
+3. update your ssh key path in main.py
+4. python3 main.py
+5. hosts file will be updated
+6. check ssh -- ansible all -m ping
+7. run playbook -- ansible-playbook -i hosts play_book.yml

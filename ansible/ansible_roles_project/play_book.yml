@@ -1,0 +1,99 @@
+---
+- name: Server Configuration and Setup Playbook
+  hosts: all
+  become: yes
+  vars:
+    trainer_name: "trainee-ritesh"
+
+  tasks:
+    # Role 1: Update Server
+    - name: Update all packages on the server
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
+      notify: Run autoremove
+
+    # Role 2: Update SSH configuration
+    - name: Update SSH configuration to allow TCP forwarding
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?AllowTcpForwarding'
+        line: 'AllowTcpForwarding yes'
+      notify: Restart SSH
+
+    - name: Add GatewayPorts configuration
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: 'GatewayPorts clientspecified'
+      notify: Restart SSH
+
+    # before
+    #  #AllowTcpForwarding yes
+    #  #GatewayPorts no
+
+    # after -- they will be uncommented
+    #  AllowTcpForwarding yes
+    #  GatewayPorts clientspecified
+
+    # Role 3: Change hostname to trainer_name
+    - name: Change hostname to "{{ trainer_name }}"
+      hostname:
+        name: "{{ trainer_name }}"
+
+    - name: Ensure hostname is updated
+      command: hostnamectl set-hostname "{{ trainer_name }}"
+
+    # Role 4: Check current hostname and display it
+    - name: Check hostname
+      command: hostname
+      register: current_hostname
+
+    # Debug the current_hostname value
+    - name: Display current_hostname
+      debug:
+        msg: "The current hostname is: {{ current_hostname.stdout }}"
+
+    - name: Debug current hostname
+      debug:
+        var: current_hostname.stdout
+
+    # Role 5: Create user only if hostname matches trainer_name
+    - name: Create user "{{ trainer_name }}"
+      user:
+        name: "{{ trainer_name }}"
+        create_home: yes
+        shell: /bin/bash
+      when: "'{{ trainer_name }}' in current_hostname.stdout"
+
+    - name: Set home directory permissions
+      file:
+        path: "/home/{{ trainer_name }}"
+        owner: "{{ trainer_name }}"
+        mode: '0750'
+      when: "'{{ trainer_name }}' in current_hostname.stdout"
+
+    # Role 6: Install Apache web server
+    - name: Install Apache web server
+      yum:
+        name: httpd
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Apache service
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+
+  handlers:
+    - name: Restart SSH
+      service:
+        name: sshd
+        state: restarted
+
+    - name: Run autoremove
+      yum:
+        name: '*'
+        state: removed
+        autoremove: yes

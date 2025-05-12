@@ -1,0 +1,43 @@
+---
+- name: Install and configure NGINX
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update the system package cache
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
+
+    - name: Install NGINX using yum
+      yum:
+        name: nginx
+        state: present
+
+    - name: Start and enable NGINX service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create custom index.html
+      copy:
+        dest: /usr/share/nginx/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Welcome to NGINX</title>
+          </head>
+          <body>
+              <h1>Welcome to NGINX Web Server!</h1>
+          </body>
+          </html>
+      notify:
+        - Restart NGINX
+
+  handlers:
+    - name: Restart NGINX
+      service:
+        name: nginx
+        state: restarted
