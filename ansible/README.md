@@ -20,6 +20,11 @@ The playbook should also have a separate README.md file.
 
 code : ansible_roles_project
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+
 ## Task 2: Create an Ansible playbook that incorporates the following roles:
 1. Deploying an EC2 server
 2. Installing Nginx
@@ -28,9 +33,32 @@ code : ansible_roles_project
 The playbook should use handlers as well.
 
 code : ansible_project
+note: 
+1. ec2 instance creation part is skipped
+2. host name is updated manually
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
 
 ## Task 3: Create an Ansible dynamic inventory script to manage instances deployed 
 in AWS EC2. The inventory should specifically target instances with the tag 
 role=web and update Nginx on those instances.
 
 code: ansible_dynamic_inventory
+
+### step 1: python main.py file will get all the instance that matched with the tag (key:role, value:web) and update the host file
+
+![alt text](image-4.png)
+
+### step 2: ansible playbook wil install nginx with custom nome page
+```
+ansible-playbook -i hosts play_book.yml
+```
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+### note: I done nginx installation process of only one server
+
