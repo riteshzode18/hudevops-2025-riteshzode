@@ -98,6 +98,17 @@ Q 4. Create a Multiple Jenkins pipeline for Build and Deploy stage.
 the application.
 - Once the build pipeline is successfully completed, trigger the deploy pipeline.
 
+![alt text](image-6.png)
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+![alt text](image-7.png)
 
 
 
