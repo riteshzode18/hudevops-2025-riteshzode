@@ -28,6 +28,11 @@ Define a Terraform configuration to provision an EC2 instance.
 
 Configure a security group that allows inbound SSH, HTTP, and HTTPS traffic from your system's IP address, and permits all outbound traffic. 
 
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
 
 
 Q 3: Use Terragrunt to Manage S3 Buckets Across Environments 
