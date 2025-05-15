@@ -57,7 +57,17 @@ Deploy Azure Blob Storage and upload an HTML page.
 
 Set up Azure CDN to serve the HTML page stored in Blob Storage, ensuring optimal load times globally. 
 
+![alt text](image-7.png)
 
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+## cdn is giving domain error and i am not able to connect it
 
 Q 5: Create Google Cloud Run and Container Registry 
 
