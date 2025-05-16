@@ -1,4 +1,5 @@
 ### terraform Assignment
+## DAY 1
 
 Q 1: Create an AWS IAM Role for S3 and EC2 Services Using Terraform. 
 
@@ -80,3 +81,78 @@ Create a Google Container Registry to store Docker images.
 Deploy an application using Google Cloud Run that pulls the necessary image from the Google Container Registry. 
 
  
+
+## DAY 2
+
+Q 1. Objective: Create a CloudFormation template to deploy an AWS Lambda function. 
+
+Tasks: 
+
+Create a Lambda function that logs input data to CloudWatch. 
+
+Ensure appropriate roles and permissions are configured for Lambda to write to CloudWatch.cc 
+
+```
+code: day-2/assignment-1
+```
+
+
+
+Q 2. Objective: Create a CloudFormation template to provision an S3 bucket with a lifecycle policy that transitions objects to a different storage class or deletes them after a certain period. This introduces students to AWS S3 and data lifecycle management. 
+
+Tasks: 
+
+S3 Bucket: Create an S3 bucket with a unique name (use AWS pseudo parameters or functions to generate unique names). 
+
+Lifecycle Policy: Implement a lifecycle policy that archives objects to Glacier after 30 days and then deletes them after 365 days. 
+
+Bucket Policy: Define IAM policies that grant read/write access to specific IAM roles. 
+
+```
+code: day-2/assignment-2
+```
+
+
+Q 3. Objective: Create a CloudFront distribution to serve content from an S3 bucket securely. 
+
+Tasks: 
+
+Set up an S3 bucket and upload sample content. 
+
+Configure a CloudFront distribution to serve content from the S3 bucket. 
+
+Implement Geo-restriction to restrict access to specific regions. 
+
+
+```
+code: day-2/assignment-3
+```
+
+Q 4. Objective: Deploy an Azure App Service and configure it with a custom domain. 
+
+Tasks: 
+
+Deploy an App Service plan and a web app. 
+
+Configure DNS settings to link a custom domain to the web app. 
+
+ 
+```
+code: day-2/assignment-4
+```
+
+
+Q 5. Objective: Deploy an Azure Virtual Machine Scale Set (VMSS) configured for high availability 
+
+Tasks: 
+
+Design and Deploy VM Scale Set. 
+
+Implement Autoscaling. 
+
+Setup Load Balancing 
+
+
+```
+code: day-2/assignment-5
+```

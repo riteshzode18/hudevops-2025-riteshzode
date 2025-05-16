@@ -1,0 +1,2 @@
+We have to manully uplaod file after stack is created
+CloudFormation cannot natively upload files 

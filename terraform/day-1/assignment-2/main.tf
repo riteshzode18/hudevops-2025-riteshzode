@@ -15,7 +15,7 @@ provider "aws" {
 // create a security group
 resource "aws_security_group" "my_sg" {
   name        = "hu-devops-25-rkishorzode-sg"
-  description = "Allow SSH, HTTP and HTTPS traffic"
+  description = "Allow SSH and HTTP traffic"
   vpc_id      = "vpc-040e583668e43adf1"
 
   ingress {
@@ -40,7 +40,7 @@ resource "aws_security_group" "my_sg" {
     protocol    = "tcp"
     cidr_blocks = ["24.239.142.70/32"]
 
-    description = "Allow HTTPS access"
+    description = "Allow HTTPs access"
   }
   egress {
     from_port   = 0
