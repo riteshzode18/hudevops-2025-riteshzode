@@ -8,10 +8,16 @@ Scenario-1: Sample web application with configmap
 1. Deploy a nginx deployment with name web1 and custom index.html(this needs to be 
 done using configmap). Expose it to nodeport of 30080 in “web” namespace for this 
 scenario.
+
+![alt text](image.png)
+
+
 Scenario-2: PV, PVC, secrets
 2. Create a wordpress deployment with mysql as a database and expose it to nodeport 
 30081. Use “volume” namespace for “wordpress” deployment and “database” namespace 
 for mysql database and login to wordpress with predefined credentials.
+
+
 Scenario-3: Multi container pod and logging
 3. A. Create a pod named sidecar with 2 containers named main and sidecar respectively. 
 Fetch the logs from app container to sidecar container. Use nginx for main and 
@@ -21,7 +27,7 @@ Here is how we can utilize init containers to deploy the pod displaying its IP a
 • One init container named write-ip gets the pod IP using the MY_POD_IP env 
 variable populated from the Pod's own status. and writes to an ip.txt file inside the 
 /web-content volume attached to the pod.
-• The second init container named create-html reads the pod IP from /webcontent/ip.txt file that contains the pod IP created by the first init container and 
+• The second init container named create-html reads the pod IP from /web-content/ip.txt file that contains the pod IP created by the first init container and 
 writes it to /web-content/index.html file.
 • Now, the main nginx container (web-container) mounts the default 
 /usr/share/nginx/html to /web-content volume where we have the index.html file.
