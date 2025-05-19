@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  CloudFormation template to provision a secure S3 bucket with a unique name, versioning,
+  lifecycle policy for Glacier/archive and deletion, and public access blocked.
+
+Resources:
+
+  MainBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "hu-devops-25-rkishorzode-${AWS::Region}-${AWS::StackName}"
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: "TransitionToGlacierAndDelete"
+            Status: Enabled
+            Transitions:
+              - StorageClass: GLACIER
+                TransitionInDays: 30
+            ExpirationInDays: 365
+
+Outputs:
+  MainBucketName:
+    Description: Name of the main bucket
+    Value: !Ref MainBucket
+  MainBucketArn:
+    Description: ARN of the main bucket
+    Value: !GetAtt MainBucket.Arn
