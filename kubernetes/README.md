@@ -53,9 +53,9 @@ Hint: Use podman for image push to private docker registry.
 kubectl create secret docker-registry regcred \
   --docker-username=DOCKERHUB_NAME \
   --docker-password=DOCKERHUB_PASSWORD \
-  --docker-email=YOUR_EMAIL
+  --docker-email=EMAIL_ID
 ```
-
+![alt text](image-3.png)
 
 
 ### Submission Rules-
