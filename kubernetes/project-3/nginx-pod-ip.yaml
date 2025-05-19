@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-ip
+  namespace: sidecar
+spec:
+  volumes:
+  - name: web-content
+    emptyDir: {}
+  initContainers:
+  - name: write-ip
+    image: busybox:1.28
+    env:
+    - name: MY_POD_IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP
+    command: ["/bin/sh", "-c", "echo $MY_POD_IP > /web-content/ip.txt"]
+    volumeMounts:
+    - name: web-content
+      mountPath: /web-content
+  - name: create-html
+    image: busybox:1.28
+    command: ["/bin/sh", "-c", "echo '<html><body><h1>Pod IP: '$(cat /web-content/ip.txt)'</h1></body></html>' > /web-content/index.html"]
+    volumeMounts:
+    - name: web-content
+      mountPath: /web-content
+  containers:
+  - name: web-container
+    image: nginx
+    volumeMounts:
+    - name: web-content
+      mountPath: /usr/share/nginx/html
+    ports:
+    - containerPort: 80
