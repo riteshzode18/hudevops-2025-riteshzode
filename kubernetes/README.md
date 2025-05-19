@@ -17,6 +17,10 @@ Scenario-2: PV, PVC, secrets
 30081. Use “volume” namespace for “wordpress” deployment and “database” namespace 
 for mysql database and login to wordpress with predefined credentials.
 
+![alt text](image-7.png)
+
+![alt text](image-8.png)
+
 
 Scenario-3: Multi container pod and logging
 3. A. Create a pod named sidecar with 2 containers named main and sidecar respectively. 
