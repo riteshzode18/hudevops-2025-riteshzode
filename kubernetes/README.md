@@ -27,7 +27,7 @@ Here is how we can utilize init containers to deploy the pod displaying its IP a
 • One init container named write-ip gets the pod IP using the MY_POD_IP env 
 variable populated from the Pod's own status. and writes to an ip.txt file inside the 
 /web-content volume attached to the pod.
-• The second init container named create-html reads the pod IP from /web-content/ip.txt file that contains the pod IP created by the first init container and 
+• The second init container named create-html reads the pod IP from /web content/ip.txt file that contains the pod IP created by the first init container and 
 writes it to /web-content/index.html file.
 • Now, the main nginx container (web-container) mounts the default 
 /usr/share/nginx/html to /web-content volume where we have the index.html file.
@@ -44,6 +44,18 @@ health check is failed.
 Name: nginx-resource, Image: nginx, Memory requests: 128Mi and limits: 512Mi, Cpu: 
 requests: 200m and limits 400m
 Hint: Use podman for image push to private docker registry.
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+```
+kubectl create secret docker-registry regcred \
+  --docker-username=DOCKERHUB_NAME \
+  --docker-password=DOCKERHUB_PASSWORD \
+  --docker-email=YOUR_EMAIL
+```
+
 
 
 ### Submission Rules-
