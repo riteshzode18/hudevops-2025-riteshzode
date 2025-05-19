@@ -32,11 +32,16 @@ writes it to /web-content/index.html file.
 • Now, the main nginx container (web-container) mounts the default 
 /usr/share/nginx/html to /web-content volume where we have the index.html file.
 Scenario-4: Network Policies 
+
+
 4. Create deployments named web2 and app2 in web and app namespaces respectively. 
 Allow ingress traffic to app2 from web2 and deny traffic from other namespaces and 
 pods. Use nginx image for both the deployments.
 Hint: Use network policies for this scenario and test it from other pods and 
 namespaces.(Calico)
+
+![alt text](image-4.png)
+
 Scenario-5: Private Docker registry, Resource Limits and Health checks
 5. Push a Docker image to your private docker registry and create a deployment to pull the 
 image from the private registry. Create a pod with below info and restart whenever its 
