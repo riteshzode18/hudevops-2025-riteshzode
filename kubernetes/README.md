@@ -94,7 +94,11 @@ policy or at the end of the container section above the restart Policy.
 
 ![alt text](image-21.png)
 
-![alt text](image-20.png)
+<!-- ![alt text](image-20.png) -->
+
+![alt text](image-22.png)
+
+![alt text](image-23.png)
 
 
 Question 2: Helm
