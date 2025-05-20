@@ -1,4 +1,25 @@
 resources:
   - deployment.yaml
   - service.yaml
-  
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - ENV=base
+      - LOG_LEVEL=info
+
+secretGenerator:
+  - name: db-secret
+    literals:
+      - DB_USER=baseuser
+      - DB_PASSWORD=basepass
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+commonLabels:
+  app.kubernetes.io/name: myapp
+  app.kubernetes.io/part-of: kustomize-app
+  app.kubernetes.io/managed-by: kustomize
+
+namePrefix: base-

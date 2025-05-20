@@ -1,4 +1,27 @@
 resources:
   - ../../base
+
+configMapGenerator:
+  - name: app-config
+    behavior: merge
+    literals:
+      - ENV=dev
+      - LOG_LEVEL=debug
+
+secretGenerator:
+  - name: db-secret
+    behavior: merge
+    literals:
+      - DB_USER=devuser
+      - DB_PASSWORD=devpass
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+# commonLabels:
+#   env: dev
+
+# namePrefix: dev-
+
 patchesStrategicMerge:
   - patch.yaml
