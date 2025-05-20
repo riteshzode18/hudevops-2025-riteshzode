@@ -112,6 +112,9 @@ name, email(Your hashedin email id). Here name refers to your name
 changing the chart version from 0.1.0 to the latest version in the 
 Chart,yaml file. Ex: {0.1.0,0.2.0,0.3.0 ….}
 Submit the output along with the next question.
+
+![alt text](image-17.png)
+
 2.2. Update the same helm chart and upgrade the same deployment by changing 
 the image tag to ‘1.18.0’ and replica count to 2 from 1. 
 Now using helm command, rollback the deployment to the previous successful 
@@ -124,6 +127,11 @@ helm charts. Packaged helm chart should be in the {Yourfirstname}-dev-
 ● "$ kubectl get all -n namespace -o wide" 
 ● helm history yourrelease_name -n namespace
 
+
+![alt text](image-18.png)
+
+
+![alt text](image-19.png)
 
 Question 3: 
 3.1 Run the given deployment manifest file log-deployment.yaml under the gdrive 
@@ -153,6 +161,10 @@ happening.
 <!-- ![alt text](image-13.png) -->
 
 ![alt text](image-14.png)
+
+<!-- ![alt text](image-15.png) -->
+
+![alt text](image-16.png)
 
 ![alt text](image-11.png)
 
