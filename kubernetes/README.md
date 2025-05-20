@@ -92,14 +92,19 @@ Error from server (ServiceUnavailable)
 Edit the running deployment and Add this entry(hostNetwork: true) below dns 
 policy or at the end of the container section above the restart Policy. 
 
-![alt text](image-21.png)
+<!-- ![alt text](image-21.png) -->
 
 <!-- ![alt text](image-20.png) -->
 
-![alt text](image-22.png)
+<!-- ![alt text](image-22.png) -->
 
-![alt text](image-23.png)
+<!-- ![alt text](image-24.png) -->
 
+<!-- ![alt text](image-23.png) -->
+
+![alt text](image-25.png)
+
+![alt text](image-26.png)
 
 Question 2: Helm
 2.1. Run the helm charts helm-sample-app-0.0.1.tgz which is present inside the 
