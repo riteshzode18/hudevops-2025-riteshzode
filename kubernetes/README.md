@@ -1,4 +1,4 @@
-### Kubernetes Assignment
+### Kubernetes Assignment Day 1
 
 Kubernetes Assignment
 Pre-requisite:
@@ -77,3 +77,121 @@ Differentiate the manifests files like 1-pod.yaml, 2-deployment.yaml, etc
 ● Also, push a Document on how you troubleshoot the errors while provisioning your 
 cluster.
 ● Any sensitive secrets, file should not be placed in plain text or pushed to github
+
+
+### Kubernetes Assignment Day 2
+
+Kubernetes Assignment Day Two
+Question 1: Kubernetes Dashboard. 
+1.1. Enable kubernetes dashboard and create separate token to access 
+it.(Provide screenshot of it.)
+1.2. Deploy metrics-server and provide the screenshot of node and pod resource 
+usage
+If you are getting any issues 
+Error from server (ServiceUnavailable)
+Edit the running deployment and Add this entry(hostNetwork: true) below dns 
+policy or at the end of the container section above the restart Policy. 
+
+
+
+Question 2: Helm
+2.1. Run the helm charts helm-sample-app-0.0.1.tgz which is present inside the 
+Assignment_Resources folder.
+Use the newly created namespace for running helm charts. 
+Namespace should be in the format: {Yourfistname-project}
+If you face any issues while running the helm charts , then debug those errors 
+and 
+make sure that the helm chart is deployed properly. While you debug those 
+errors also make sure that you also make following changes in the chart.
+Add following changes in the Chart.yaml
+● Modify Chart name: {Yourfirstname}-dev
+● Add maintainers field in Chart.yaml under this you can have a variable like 
+name, email(Your hashedin email id). Here name refers to your name 
+(chart owner name).
+● Each time when you run helm upgrade command make sure that you're 
+changing the chart version from 0.1.0 to the latest version in the 
+Chart,yaml file. Ex: {0.1.0,0.2.0,0.3.0 ….}
+Submit the output along with the next question.
+2.2. Update the same helm chart and upgrade the same deployment by changing 
+the image tag to ‘1.18.0’ and replica count to 2 from 1. 
+Now using helm command, rollback the deployment to the previous successful 
+deployment version.
+P.S: your output screenshot should have the following: 
+output of 
+● You can use the helm package command to package the final working 
+helm charts. Packaged helm chart should be in the {Yourfirstname}-dev-
+{chart-version}.tgz format (no screenshot)
+● "$ kubectl get all -n namespace -o wide" 
+● helm history yourrelease_name -n namespace
+
+
+Question 3: 
+3.1 Run the given deployment manifest file log-deployment.yaml under the gdrive 
+Assignment_Resources folder which has 2 containers (container1 and container2 ) 
+placed inside the single pod. 
+Take the logs of both the containers one by one and write the log data over files 
+called c1.log and c2.log.
+P.S: c1.log file should have container1 logs only and c2.log should have logs of 
+container2 only.
+HPA:
+
+![alt text](image-9.png)
+
+
+3.2 Create HPA for the deployment “nginx-resource” (Day 1 question 5) with memory 
+and cpu limit of 80%.
+Min size=2
+Max size=7
+Pod should scale when cpu utilization or memory consumption is more than 80%
+Also test out your application by using stress tools to see if autoscaling is 
+happening.
+
+![alt text](image-10.png)
+
+![alt text](image-12.png)
+
+<!-- ![alt text](image-13.png) -->
+
+![alt text](image-14.png)
+
+![alt text](image-11.png)
+
+Question 4: 
+Deploying a Multi-Environment Application with Kustomize 
+You are part of a DevOps team tasked with deploying a new web application across 
+multiple environments (dev and prod). Your team has decided to use Kustomize to 
+manage Kubernetes configurations efficiently. 
+4.1. Initial Setup and Customization: 
+Scenario: The application needs to be deployed with different configurations in 
+development and production environments. The development environment requires 
+a single replica for testing, while production needs three replicas for high 
+availability. 
+Task: Create a base Kubernetes configuration for the application. Use Kustomize 
+to set up overlays for both environments, adjusting the replica count and resource 
+limits accordingly. 
+4.2 Configuration Management: 
+Scenario: The application requires different environment variables and ConfigMaps 
+for each environment. Additionally, sensitive information such as database 
+credentials must be securely managed. 
+Task: Use Kustomize to generate and customize ConfigMaps and Secrets for each 
+environment. Ensure that environment-specific variables are correctly applied 
+without exposing sensitive data. 
+Note: As part of the deployment process, all resources must include a consistent 
+naming convention and labeling strategy to facilitate monitoring and management.
+
+
+Question 5: 
+You are tasked with creating a Custom Resource Definition (CRD) in Kubernetes for 
+a new resource type called Linker under the API group training.com.
+The CRD should define:
+The resource with plural linkers and singular linker.
+The resource kind as Linker with a short name lk.
+A version v1 that is both served and stored.
+A spec containing two string fields: name and technology. After creating the CRD, 
+define a sample Custom Resource (CR) instance named my-linker-sample with:
+Example: name as "Siddhartha's Linker", technology as "Kubernetes"
+Tasks:
+1. Write the YAML manifest for the CRD.
+2. Write the YAML manifest for the CR.
+3. List the kubectl commands you would run to apply these manifests and verify the 
+creation of the CR.
