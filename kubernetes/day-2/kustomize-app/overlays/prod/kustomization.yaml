@@ -1,4 +1,4 @@
 resources:
   - ../../base
 patchesStrategicMerge:
-  - replicas-patch.yaml
+  - patch.yaml
