@@ -1,2 +1,4 @@
 resources:
   - ../../base
+patches:
+  - replicas-patch.yaml
