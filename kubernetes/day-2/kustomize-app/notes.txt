@@ -1,0 +1,6 @@
+pwd -- kustomize-project
+
+kustomize build overlays/dev | kubectl apply -f -
+
+
+kustomize build overlays/prod | kubectl apply -f -

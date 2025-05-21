@@ -1,0 +1,27 @@
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: app-config
+    behavior: merge
+    literals:
+      - ENV=prod
+      - LOG_LEVEL=error
+
+secretGenerator:
+  - name: db-secret
+    behavior: merge
+    literals:
+      - DB_USER=produser
+      - DB_PASSWORD=prodpass
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+# commonLabels:
+#   env: prod
+
+# namePrefix: prod-
+
+patchesStrategicMerge:
+  - patch.yaml

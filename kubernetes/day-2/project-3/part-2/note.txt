@@ -1,0 +1,20 @@
+kubectl autoscale deployment nginx-resource \
+  --cpu-percent=80 \
+  --min=2 \
+  --max=7
+
+kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- sh
+
+
+while true; do curl -s http://nginx-resource-service > /dev/null; done
+
+while true; do curl -sS http://nginx-resource-service > /dev/null 2>&1; done
+
+for i in {1..500}; do curl http://nginx-resource-service/; done
+
+
+for i in $(seq 1 5000); do curl http://nginx-resource-service/; done
+
+
+s == silence
+S == show error
