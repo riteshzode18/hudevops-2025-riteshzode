@@ -57,8 +57,9 @@ i. CPU Utilization
 ii. Uptime
 iii. Disk read and write operations
 
-![alt text](<Screenshot 2025-05-21 130628.png>)
+<!-- ![alt text](<Screenshot 2025-05-21 130628.png>) -->
 <!-- ![alt text](image-11.png) -->
+![alt text](image-12.png)
 
 ![alt text](<Screenshot 2025-05-21 130610.png>)
 
