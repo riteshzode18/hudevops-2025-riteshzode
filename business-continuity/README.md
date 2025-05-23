@@ -10,7 +10,13 @@ for hosting.
 4. Set up the necessary permissions to make the website publicly accessible.
 
 
+![alt text](image-1.png)
 
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
 
 2.
 Use Case: Migrating a small web application to AWS Elastic Beanstalk.
@@ -23,6 +29,13 @@ AWS Elastic Beanstalk.
 4. Configure environment settings such as scaling, monitoring, and logging.
 
 
+![alt text](<Screenshot 2025-05-23 160425.png>)
+
+![alt text](<Screenshot 2025-05-23 160449.png>)
+
+![alt text](<Screenshot 2025-05-23 160813.png>)
+
+
 
 ## Question for Disaster Recovery Track in HU
 
@@ -32,6 +45,11 @@ server with new security patches. However, there is concern that the update migh
 ensure you can quickly revert to a working version of the web server in case of failure, you need to implement 
 a strategy that allows you to restore the instance to its current state with minimal downtime.
  
+answer:
+i will create AMI of ec2 instance so i can craete instance with autoscaling in failover situation
+or
+EBS snapshots for backup
+
  
 Scenario 02: 
 Your organization needs to ensure business continuity and data protection for a critical application hosted in a Virtual 
@@ -53,6 +71,12 @@ Deploy sample nginx server on minikube
 i) Pod delete
 ii) Pod cpu hog 
 
+![alt text](image.png)
+
+![alt text](image-8.png)
+
+
+
 
 Assignment – 2
 Clone the given repository in minikube cluster (https://github.com/Java-Techie-jt/springboot-k8s-yaml.git) 
@@ -62,8 +86,18 @@ Perform the following chaos experiments in litmus
 i) Spring boot app kill
 ii) Spring boot memory stress
 Monitor the actions in any of the monitoring tools like Prometheus, Grafana and note down the results
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-9.png)
+
+
 Acceptance criteria: -
 i) Create a neat document with all the necessary steps and required screenshots with the explanation
 ii) Terminate the ec2-instance after successfully performing the experiment
 iii) Follow the security best practices during the entire track
 You have to push all the documents to git with best practices after that there is no acceptance.
+
+
