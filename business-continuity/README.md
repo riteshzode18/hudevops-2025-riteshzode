@@ -50,7 +50,21 @@ i will create AMI of ec2 instance so i can craete instance with autoscaling in f
 or
 EBS snapshots for backup
 
- 
+<!-- ![alt text](image-10.png) -->
+![alt text](image-13.png)
+
+<!-- ![alt text](image-11.png) -->
+![alt text](image-14.png)
+
+<!-- ![alt text](image-12.png) -->
+![alt text](image-15.png)
+
+![alt text](image-17.png)
+
+![alt text](image-16.png)
+
+
+
 Scenario 02: 
 Your organization needs to ensure business continuity and data protection for a critical application hosted in a Virtual 
 Machine (VM) on Azure. To achieve this, you must implement an automated disaster recovery solution that regularly 
