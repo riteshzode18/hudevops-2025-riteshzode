@@ -90,7 +90,13 @@ ii) Pod cpu hog
 ![alt text](image-8.png)
 
 
+<!-- ![alt text](image-18.png) -->
 
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+![alt text](image-21.png)
 
 Assignment – 2
 Clone the given repository in minikube cluster (https://github.com/Java-Techie-jt/springboot-k8s-yaml.git) 
