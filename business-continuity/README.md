@@ -98,6 +98,8 @@ ii) Pod cpu hog
 
 ![alt text](image-21.png)
 
+![alt text](image-22.png)
+
 Assignment – 2
 Clone the given repository in minikube cluster (https://github.com/Java-Techie-jt/springboot-k8s-yaml.git) 
 deploy this sample spring boot application by adding required dependencies in pom.xml and 
