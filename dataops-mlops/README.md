@@ -38,9 +38,8 @@ _As a DevOps Engineer, you’re tasked with setting up an end-to-end ETL pipelin
 
 ![alt text](image-3.png)
 
-<!-- ![alt text](image-4.png) -->
+![alt text](image-4.png)
 
-![alt text](image-23.png)
 
 ![alt text](image-5.png)
 
@@ -85,7 +84,9 @@ _Set up a comprehensive CI/CD pipeline using AWS services to automate the proces
 
 ![alt text](image-10.png)
 
-![alt text](image-11.png)
+<!-- ![alt text](image-11.png) -->\
+![alt text](image-23.png)
+
 
 ![alt text](image-12.png)
 
