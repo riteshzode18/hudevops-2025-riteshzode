@@ -38,7 +38,9 @@ _As a DevOps Engineer, you’re tasked with setting up an end-to-end ETL pipelin
 
 ![alt text](image-3.png)
 
-![alt text](image-4.png)
+<!-- ![alt text](image-4.png) -->
+
+![alt text](image-23.png)
 
 ![alt text](image-5.png)
 
