@@ -116,6 +116,7 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/1
 
 ![alt text](image-3.png)
 
+checkov-report:
 ![alt text](image-10.png)
 
 
