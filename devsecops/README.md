@@ -48,6 +48,11 @@ HU DevOps 25.4.2 HashedIn University
 https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-1
 ```
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+
 
 Q2. Secure S3 Bucket Configuration
 Objective:
@@ -85,7 +90,15 @@ HU DevOps 25.4.2 HashedIn University
 
 ```
 https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-2
+
 ```
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+
+
 Q3. Secure Terraform Config Using Terrascan and Infracost
 Objective:
 Create Terraform scripts for an S3 Bucket and validate the Terraform configuration using 
@@ -117,3 +130,6 @@ Follow-Up Questions:
 ```
 https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-3
 ```
+
+![alt text](image-4.png)
+
