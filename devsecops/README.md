@@ -60,6 +60,8 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/1
 
 ![alt text](image-5.png)
 
+![alt text](image-9.png)
+
 ![alt text](image-6.png)
 
 ![alt text](image-7.png)
@@ -114,6 +116,10 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/1
 
 ![alt text](image-3.png)
 
+![alt text](image-10.png)
+
+
+<!-- ![alt text](image-11.png) -->
 
 
 Q3. Secure Terraform Config Using Terrascan and Infracost
