@@ -48,9 +48,21 @@ HU DevOps 25.4.2 HashedIn University
 https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-1
 ```
 
+```
+action
+https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/15277042714
+
+```
+
 ![alt text](image.png)
 
 ![alt text](image-1.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
 
 
 
@@ -93,6 +105,11 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-2
 
 ```
 
+```
+action
+https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/15276652823
+```
+
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
@@ -132,4 +149,6 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-3
 ```
 
 ![alt text](image-4.png)
+
+![alt text](image-8.png)
 
