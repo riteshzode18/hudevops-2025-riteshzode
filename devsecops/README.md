@@ -109,16 +109,21 @@ https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/tree/feature-2
 
 ```
 action
-https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/15276652823
+https://github.com/riteshzode18/hu-devops-25-devsecops-assignment/actions/runs/15278738773
 ```
 
 ![alt text](image-2.png)
 
-![alt text](image-3.png)
+<!-- ![alt text](image-3.png) -->
+
+![alt text](image-13.png)
 
 checkov-report:
 ![alt text](image-10.png)
 
+tflint-report:
+
+![alt text](image-12.png)
 
 <!-- ![alt text](image-11.png) -->
 
