@@ -103,6 +103,23 @@ a. How the application and AI Model interact with each other
 b. How the setup is done under the hood.
 Note: Attach screenshots validating all the scripts/code generated
 
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+![alt text](image-14.png)
+
+![alt text](image-15.png)
+
+
 4. Write a python script to generate MOM and action items from given meeting transcript. 
 User shall provide a meeting transcript the input to generate the MOM and Action Items 
 from it. The transcript can be downloaded from their teams or any other sample. The 
