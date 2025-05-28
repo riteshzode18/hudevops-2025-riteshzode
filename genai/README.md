@@ -115,3 +115,7 @@ the highlighted MOM, action items and required parameter as per the user.
 age, location, education, work exp, skills, short bio. Input: Feed in the resume as the 
 input in text form. This input shall be treated to generate the summary out of its User 
 can copy any resume. Make sure the resume is properly formatted and is more real
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
