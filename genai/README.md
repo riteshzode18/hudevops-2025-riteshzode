@@ -111,6 +111,9 @@ required parameters. Sample Input (For reference Purpose only): take any pdf, do
 containing meeting transcript. Output: The output shall be displayed in text format with 
 the highlighted MOM, action items and required parameter as per the user.
 
+
+![alt text](image-7.png)
+
 5. Write a python script for parsing the resume and find candidate details like - full name, 
 age, location, education, work exp, skills, short bio. Input: Feed in the resume as the 
 input in text form. This input shall be treated to generate the summary out of its User 
