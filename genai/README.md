@@ -95,6 +95,8 @@ Ensure your output is easy to understand and ready for implementation.
 given corpus of text. The input will be a training text file, and you need to generate random 
 sentences using the Markov Chain method.
 
+![alt text](image-16.png)
+
 3. Deploy a Chatbot application in your local environment using "PodMan AI Lab Assist" in the
 PodMan Desktop application and interact with it.
 Model: instructlab/granite-7b-lab-GGUF
